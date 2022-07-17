@@ -1,0 +1,203 @@
+@media (max-width: 575.98px) {
+  .needhelpModal,
+  .feedbackModal {
+    width: 96%;
+    margin-left: 2%;
+  }
+
+  .loginImageUpper {
+    margin-top: 1rem;
+  }
+
+  .hmT1{
+    width: 45%;
+  }
+}
+
+/* --------Navigation bar------------ */
+
+/* Navabar background color */
+.navbar {
+  background-color: #ffffff;
+}
+
+/* Navbar Logo Positon and Size */
+#navbarLogo {
+  margin-top: -10px;
+  margin-bottom: -10px;
+}
+
+/* Find Garage Button*/
+#findGarageButton {
+  border-radius: 25px;
+  padding: 4px;
+}
+
+/* Navbar Menu Itemm Color */
+.menuText {
+  /* background-color: #1616ff; */
+  color: #2f98ef;
+  font-size: 1.1rem;
+  font-weight: 500;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+/* navbar Menu Item Hover Color */
+a.hmT:hover {
+  color: #0264cd;
+  border-bottom: 2px solid #2f98ef;
+}
+
+.hmT1 {
+  background-color: #2f98ef;
+}
+
+a.hmT1:hover {
+  background-color: #0264cd;
+}
+
+/* Navbar Toggle icon color change - in the small screens */
+.custom-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 123, 255, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.custom-toggler.navbar-toggler {
+  border-color: #007bff;
+}
+
+/* ------ Timeline Section Styles ------- */
+
+/* timeline ,left ,mid and right section background color */
+#filter-section,
+#booking-section,
+#post-section,
+#map-section {
+  background-color: #f3f6f9;
+}
+
+.ttt{
+  position: fixed;
+}
+
+#timeline,
+#findGarage {
+  background-color: #f3f6f9;
+}
+
+/* Button Group Card Corner */
+.roundedBox {
+  border-radius: 10px;
+}
+
+/* Search Box coner */
+.searchBox {
+  border-radius: 20px;
+}
+
+/* post section buttons width */
+.TopButtons {
+  width: 45%;
+  height: 2rem;
+}
+
+/* Side Nave Styles - Mobile view */
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  background-color: white;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* Post senction Top User Profile Icon */
+.postpro {
+  font-size: 40px;
+}
+
+/* User green states */
+.greenState {
+  color: #7fff00;
+}
+
+/* User green states */
+.redState {
+  color: red;
+}
+
+/* User green states */
+.yellowState {
+  color: yellow;
+}
+
+.detailsBack {
+  border: #5b5c5d 1px solid;
+}
+
+/* Table content line height */
+.table,
+.userTopName {
+  line-height: 1.2;
+}
+
+/* Add comment Input Field */
+.addCommentInput {
+  border-radius: 15px;
+  height: 1.6rem;
+}
+
+/* Add comment send and cancel button */
+.addCommentButton {
+  height: 1.4rem;
+  font-size: 10px;
+  border-radius: 15px;
+  padding-bottom: 10px;
+  margin-top: 1%;
+}
+
+/* User Comment Section Image Properties */
+.userImageSize {
+  width: 40px;
+  height: 40px;
+}
+
+/* Comment Field User Profile picture */
+.userProfImg {
+  width: 40px;
+  height: 40px;
+}
+
+/* Post menu three dots */
+.dotIcon {
+  height: 15px;
+}
+
+/*Input feild with Search Button */
+.custom-search {
+  position: relative;
+}
+.custom-search-input {
+  width: 100%;
+  padding-right: 100px !important;
+  box-sizing: border-box;
+}
+.custom-search-botton {
+  position: absolute;
+  right: 3px;
+  top: 3px;
+  bottom: 3px;
+  line-height: 1 !important;
+  z-index: 1;
+}

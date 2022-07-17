@@ -20,24 +20,14 @@
       href="https://fonts.googleapis.com/css?family=Roboto"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
+    <link rel="stylesheet" href="CSS/style.css" />
 
     <title>Timeline</title>
-    <link rel="shortcut icon" href="{{ asset('assets/img/favicon.ico') }}" type="image/x-icon" />
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
   </head>
-
-  <body>
-
-    <!-- ####  Navigation Bar #### -->
-    <x-top-nav></x-top-nav>
-    <!-- ####  Navigation Bar End #### -->
-
-
-    <div class="mt-4"></div> <!-- Space after the navigation bar -->
-
+  <body class="bg-dark">
+    <!-- #### START HERE #####-->
     @yield('content')
-    
-    
 
     <script
       src="https://code.jquery.com/jquery-3.6.0.min.js"

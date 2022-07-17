@@ -1,0 +1,3 @@
+INSERT INTO `post_types` (`id`, `type`, `created_at`, `updated_at`) VALUES (NULL, 'Feedback', NULL, NULL), (NULL, 'Need Help', NULL, NULL), (NULL, 'Mechanic Ads', NULL, NULL)
+
+INSERT INTO `vehicle_types` (`id`, `type`, `created_at`, `updated_at`) VALUES (NULL, 'Car', NULL, NULL), (NULL, 'Van', NULL, NULL), (NULL, 'Bike', NULL, NULL), (NULL, '3 Wheeler', NULL, NULL), (NULL, 'Lorry', NULL, NULL), (NULL, 'Bus', NULL, NULL)
