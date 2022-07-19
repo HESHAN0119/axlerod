@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\GarageProfile;
 use App\Models\User;
 use App\Models\VehicleType;
 use Illuminate\Http\Request;
@@ -96,5 +97,14 @@ class GarageProfileController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function autocomplete_garage_name (Request $request) {
+        $data = GarageProfile::select('garage_name')->distinct()
+                    ->where('garage_name','LIKE',"%{$request->term}%")
+                    ->pluck('garage_name');
+        $values = array_values($data->toArray());
+
+        return response()->json($values);
     }
 }

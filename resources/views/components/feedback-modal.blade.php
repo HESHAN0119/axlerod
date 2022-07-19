@@ -15,7 +15,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <form action="{{ route('post.store') }}" method="POST">
+          <form action="{{ route('post.store') }}" method="POST" autocomplete="off">
             @csrf
             <input type="hidden" name="post_type" value="1">
             <label for="problem">Title</label>
@@ -49,7 +49,8 @@
             
 
             <label for="garage" class="mt-2">Garage</label>
-            <input type="text" name="garage" class="form-control">
+            <input type="text" name="garage" id="garage_name" class="form-control">
+			<input type="hidden" name="garage_id" id="garage_id">
 
             <label for="feedback" class="mt-2">Feedback</label>
             <input type="text" class="form-control" name="feedback"/>
@@ -67,3 +68,28 @@
       </div>
     </div>
 </div>
+	<script>
+		var path = "{{ route('autocomplete_garage_name')  }}";
+        $('#garage_name').typeahead({
+            minLength: 2,
+            source:  function (query, process) {
+                return $.get(path, { term: query }, function (data) {
+                    return process(data);
+                });
+            },
+            afterSelect: function (item) {
+				$("#garage_id").val(item)
+                // $.ajax({
+                //     url: "../item/"+item,
+                //     type: "GET",
+                //     success: function(data){
+                //         image_url = "{{ asset('storage/item/') }}"
+                //         image_url += '/'
+                //         image_url += data.image
+                //         $('#display_area').html("<img src='" + image_url + "' class='rounded mx-auto d-block img-thumbnail'>")
+                //     }
+                // })
+            }
+        });
+
+    </script>

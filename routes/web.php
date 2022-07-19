@@ -29,4 +29,6 @@ Route::middleware(['web', 'auth'])->group(function () {
     Route::resource('/post', PostController::class);
     Route::resource('/comment', CommentController::class);
     Route::resource('/garage/profile', GarageProfileController::class);
+
+    Route::get('autocomplete/garage/name', [GarageProfileController::class, 'autocomplete_garage_name'])->name('autocomplete_garage_name');
 });
