@@ -5,15 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class VehicleType extends Model
+class GarageProfile extends Model
 {
     use HasFactory;
 
-    public function posts () {
-        return $this->hasMany(Post::class);
+    protected $guarded = [];
+
+    public function vehicle_types () {
+        return $this->belongsToMany(VehicleType::class);
     }
 
-    public function garage_profiles () {
-        return $this->belongsToMany(VehicleType::class);
+    public function user () {
+        return $this->hasOne(User::class);
     }
 }

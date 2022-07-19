@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\GarageProfileController;
 use App\Http\Controllers\PostController;
+use App\Models\GarageProfile;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -26,4 +28,5 @@ Route::middleware(['web', 'auth'])->group(function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::resource('/post', PostController::class);
     Route::resource('/comment', CommentController::class);
+    Route::resource('/garage/profile', GarageProfileController::class);
 });
