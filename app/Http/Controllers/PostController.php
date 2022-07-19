@@ -20,6 +20,8 @@ class PostController extends Controller
     {
         $posts = Post::orderBy('id', 'DESC')->get();
         $vehicle_types = VehicleType::all();
+
+        $post = Post::find(1);
         return view('posts', ["posts"=>$posts, "vehicle_types"=>$vehicle_types]);
     }
 
