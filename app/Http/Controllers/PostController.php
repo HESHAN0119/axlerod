@@ -48,6 +48,8 @@ class PostController extends Controller
                 "problem" => ['required'],
                 "garage" => ['required'],
                 "feedback" => ['required'],
+                "city" => ["required"],
+                "district" => ["required"],
             ]);
 
             $post_type = PostType::where("type", '=', 'Feedback')->get();
@@ -56,6 +58,8 @@ class PostController extends Controller
                 "title" => ['required'],
                 "vehicle_type_id" => ['required'],
                 "problem" => ['required'],
+                "city" => ["required"],
+                "district" => ["required"],
             ]);
             $post_type = PostType::where("type", '=', 'Need Help')->get();
         }
