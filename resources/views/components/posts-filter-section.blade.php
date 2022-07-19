@@ -34,6 +34,7 @@
 				</select>
             </div> <!-- Vehicle Type selector end -->
             
+
             <!-- Province selector -->
             <div class="form-group">
                 <label for="inputState">
@@ -52,8 +53,23 @@
                     <option>Colombo</option>
                     <option>Gampaha</option>
                     <option>Kalutara</option>
+
                 </select>
             </div> <!-- District selector end-->
+
+            <!-- City selector -->
+            <div class="form-group">
+                <label for="inputCity">
+                <h6 class="font-weight-bold text-muted mt-3"> City</h6>
+                </label>
+                <select id="inputCity" class="form-control">
+                <option selected>Choose...</option>
+                <option>Kaduwela</option>
+                <option>Malabe</option>
+                <option>Hanwella</option>
+                <option>Angoda</option>
+                </select>
+            </div> <!-- Province selector end-->
 
             <!-- Search Button-->
             <div>
