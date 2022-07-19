@@ -41,11 +41,11 @@
                 <h6 class="font-weight-bold text-muted mt-3"> Province</h6>
                 </label>
                 <select id="inputState" class="form-control">
-                <option selected>Choose...</option>
-                <option>Western Province</option>
-                <option>Eastern Province</option>
-                <option>North Province</option>
-                <option>South Province</option>
+                    <option selected>Choose...</option>
+                    <option>Western Province</option>
+                    <option>Eastern Province</option>
+                    <option>North Province</option>
+                    <option>South Province</option>
                 </select>
             </div> <!-- Province selector end-->
 

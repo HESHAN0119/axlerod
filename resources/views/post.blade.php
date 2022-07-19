@@ -281,7 +281,7 @@
           </div>
         </div>
     </section> 
-    <x-needhelp-modal></x-needhelp-modal>
-    <x-feedback-modal></x-feedback-modal>  
+    {{-- <x-needhelp-modal></x-needhelp-modal>
+    <x-feedback-modal></x-feedback-modal>   --}}
     <!-- ######################################## ^^^ Timeline Section end ^^^ ######################################## -->
 @endsection
