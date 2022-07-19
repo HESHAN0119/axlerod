@@ -78,17 +78,21 @@
 										</div> <!-- Post section - First Post profile icon and name div combine tag end-->
 
 										<div class="mt-4"> <!-- Post Body  -->
-											<h2 style="border-left: 10px solid
-												@if ($post->post_type->type == "Feedback")
-													lightgreen
-												@elseif($post->post_type->type == "Need Help")
-													red
-												@else
-													yellow
-												@endif
-											">
-												<span class="ml-2">{{ $post->title }}</span>
-											</h2>
+											<div style="border-left: 10px solid
+													@if ($post->post_type->type == "Feedback")
+														lightgreen
+													@elseif($post->post_type->type == "Need Help")
+														red
+													@else
+														yellow
+													@endif
+												">
+												
+												<span class="ml-2" style="font-size: 30px; ">{{ $post->title }}</span>
+												<br>
+												<small class="text-muted ml-2">Bike | Colombo | Kaduwela</small>
+											</div>
+											<br>
 											<p>{{ Str::limit($post->problem, 150) }}</p>
 										</div> <!-- Post Body end -->
 
