@@ -98,7 +98,7 @@
                     <i class="fas fa-user fa-lg mt-3 d-none d-md-block"></i>
                   </div>
                   <div class="col-md-5">
-                    <input id="fname" type="text" class="form-control @error('fname') is-invalid @enderror" name="fname" value="{{ old('fname') }}" required autocomplete="off" autofocus>
+                    <input id="fname" type="text" class="form-control @error('fname') is-invalid @enderror" name="fname" value="{{ old('fname') }}" required autocomplete="off" placeholder="First Name" autofocus>
 
                       @error('fname')
                           <span class="invalid-feedback" role="alert">
@@ -108,7 +108,7 @@
                   </div>
                   <div class="d-block d-sm-none"><br /></div>
                   <div class="col-md-5">
-                    <input id="lname" type="text" class="form-control @error('lname') is-invalid @enderror" name="lname" value="{{ old('lname') }}" required autocomplete="off" autofocus>
+                    <input id="lname" type="text" class="form-control @error('lname') is-invalid @enderror" name="lname" value="{{ old('lname') }}" required autocomplete="off" placeholder="Last Name" autofocus>
 
                       @error('lname')
                           <span class="invalid-feedback" role="alert">
