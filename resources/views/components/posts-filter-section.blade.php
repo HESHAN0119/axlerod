@@ -35,32 +35,32 @@
                 </select>
             </div> <!-- Vehicle Type selector end -->
             
-            <!-- Province selector -->
-            <div class="form-group">
-                <label for="inputState">
-                <h6 class="font-weight-bold text-muted mt-3"> Province</h6>
-                </label>
-                <select id="inputState" class="form-control">
-                <option selected>Choose...</option>
-                <option>Western Province</option>
-                <option>Eastern Province</option>
-                <option>North Province</option>
-                <option>South Province</option>
-                </select>
-            </div> <!-- Province selector end-->
-
             <!-- District selector -->
             <div class="form-group">
-                <label for="inputState">
+                <label for="inputDistrict">
                 <h6 class="font-weight-bold text-muted mt-3"> District</h6>
                 </label>
-                <select id="inputState" class="form-control">
+                <select id="inputDistrict" class="form-control">
                 <option selected>Choose...</option>
                 <option>Colombo</option>
                 <option>Gampaha</option>
                 <option>Kalutara</option>
                 </select>
             </div> <!-- District selector end-->
+
+            <!-- City selector -->
+            <div class="form-group">
+                <label for="inputCity">
+                <h6 class="font-weight-bold text-muted mt-3"> City</h6>
+                </label>
+                <select id="inputCity" class="form-control">
+                <option selected>Choose...</option>
+                <option>Kaduwela</option>
+                <option>Malabe</option>
+                <option>Hanwella</option>
+                <option>Angoda</option>
+                </select>
+            </div> <!-- Province selector end-->
 
             <!-- Search Button-->
             <div>

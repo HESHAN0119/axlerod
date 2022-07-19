@@ -153,10 +153,10 @@
 					@csrf
 					<input type="hidden" name="post_type" value="2">
 					<label for="problem">Title</label>
-					<input type="text" class="form-control" name="title"/>
+					<input type="text" class="form-control mb-2" name="title"/>
 	
 					<label for="problem">Vehicle Type</label>
-					<select name="vehicle_type_id" class="form-control">
+					<select name="vehicle_type_id" class="form-control mb-2">
 						<option value="">Select</option>
 						@foreach ($vehicle_types as $vehicle_type)
 							<option value="{{ $vehicle_type->id }}">{{ $vehicle_type->type }}</option>
@@ -164,7 +164,19 @@
 					</select>
 	
 					<label for="problem">Problem</label>
-					<input type="text" class="form-control" name="problem"/>
+					<input type="text" class="form-control mb-2" name="problem"/>
+
+					<label for="district">District</label>
+					<select name="district_id" class="form-control mb-2">
+						<option selected>Choose...</option>
+						<option>Kaduwela</option>
+						<option>Hanwella</option>
+						<option>Malabe</option>
+						<option>Angoda</option>
+					</select>
+
+					<label for="city">City</label>
+					<input type="text" class="form-control mb-2" name="city"/>
 
 					<label for="inputImages" class="mt-2"
 						>Image File <small>(Max size : 2MB)</small></label
@@ -204,24 +216,37 @@
 				@csrf
 				<input type="hidden" name="post_type" value="1">
 				<label for="problem">Title</label>
-				<input type="text" class="form-control" name="title"/>
+				<input type="text" class="form-control mb-2" name="title"/>
 				
 				<label for="problem">Vehicle Type</label>
-				<select name="vehicle_type_id" class="form-control">
+				<select name="vehicle_type_id" class="form-control mb-2">
 					<option value="">Select</option>
 					@foreach ($vehicle_types as $vehicle_type)
 						<option value="{{ $vehicle_type->id }}">{{ $vehicle_type->type }}</option>
 					@endforeach
 				</select>
 
+				<label for="district">District</label>
+					<select name="district_id" class="form-control mb-2">
+						<option selected>Choose...</option>
+						<option>Kaduwela</option>
+						<option>Hanwella</option>
+						<option>Malabe</option>
+						<option>Angoda</option>
+					</select>
+
+				<label for="city">City</label>
+				<input type="text" class="form-control mb-2" name="city"/>
+
 				<label for="problem">Problem</label>
-				<input type="text" class="form-control" name="problem"/>
+				<input type="text" class="form-control mb-2" name="problem"/>
+				
 
 				<label for="garage" class="mt-2">Garage</label>
-				<input type="text" name="garage" class="form-control">
+				<input type="text" name="garage" class="form-control mb-2">
 
 				<label for="feedback" class="mt-2">Feedback</label>
-				<input type="text" class="form-control" name="feedback"/>
+				<input type="text" class="form-control mb-2" name="feedback"/>
 
 				<label for="inputImages" class="mt-2">Image File <small>(Max size : 2MB)</small></label>
 				<input type="file" class="form-control" id="customFile" />
