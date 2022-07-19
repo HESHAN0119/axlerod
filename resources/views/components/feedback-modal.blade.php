@@ -32,7 +32,21 @@
             <label for="problem">Problem</label>
             <input type="text" class="form-control" name="problem"/>
 
-            <input type="text" name="city"><input type="text" name="district">
+            <label for="location">Location</label>
+            <div class="row">
+              <div class="col">
+                <input type="text" name="city" class="form-control" placeholder="City">
+              </div>
+              <div class="col">
+                <select id="inputState" class="form-control" name="district">
+                  <option selected>Choose District...</option>
+                  <option>Colombo</option>
+                  <option>Gampaha</option>
+                  <option>Kalutara</option>
+              </select>
+              </div>
+            </div>
+            
 
             <label for="garage" class="mt-2">Garage</label>
             <input type="text" name="garage" class="form-control">
