@@ -70,12 +70,16 @@
                           </div>
                         </div> <!-- Three dots included button -->
                       </div> <!-- Post section - detail Post profile icon and name div combine tag end-->
-  
+
                       <div class="mt-4"> <!-- Post Body  -->
-                        <h2 style="border-left: 10px solid lightgreen">
-                          <span class="ml-2">{{ $post->title }}</span>
-                        </h2>
-                      </div> <!-- Post Body end -->
+											<div style="border-left: 10px solid lightgreen">
+												<span class="ml-2" style="font-size: 30px; ">{{ $post->title }}</span>
+												<br>
+												<small class="text-muted ml-2">Bike | Colombo | Kaduwela</small>
+											</div>
+											<br>
+											<p>{{ Str::limit($post->problem, 150) }}</p>
+										</div> <!-- Post Body end -->
   
   
                       	<div class="card mt-2 detailsBack"> <!-- Post Detils Card Section -->
@@ -86,14 +90,6 @@
 										<td>Problem</td>
 										<td><i class="fas fa-chevron-circle-right"></i></td>
 										<td>{{ $post->problem }}</td>
-									</tr>
-									<tr>
-										<td>Location</td>
-										<td><i class="fas fa-chevron-circle-right"></i></td>
-										<td>
-											Lorem ipsum dolor sit amet consectetur, adipisicing
-											elit. Dolor, officia?
-										</td>
 									</tr>
 									<tr>
 										<td>Feedback</td>
