@@ -39,7 +39,7 @@
 
 											<div> <!-- Name and time include tag -->
 												<div class="userTopName">
-													{{ $post->user->name }} 
+													{{ $post->user->fname.' '.$post->user->lname }} 
 													@if ($post->post_type->type == "Feedback")
 														<i class="fas fa-circle greenState"></i><br />
 													@elseif($post->post_type->type == "Need Help")
@@ -96,7 +96,7 @@
 										<div class="mt-4">
 											<div class="text-muted"> <!-- Comment Text -->
 												<span class="small">{{ $post->views }} views</span>
-												<span class="ml-2 small">3 comment</span>
+												<span class="ml-2 small">{{ count($post->comments) }} comments</span>
 											</div> <!-- Comment Text end -->
 
 											<div class="dropdown-divider"></div>
@@ -104,10 +104,10 @@
 											
 											<div class="row text-center mb-2"><!-- view,comment,share section -->
 												<div class="col-4">
-													<a href="postdetails.html" class="btn btn-sm"><i class="fas fa-eye"></i> view</a>
+													<a href="{{ route('post.show', $post->id) }}" class="btn btn-sm"><i class="fas fa-eye"></i> view</a>
 												</div>
 												<div class="col-4">
-													<a href="postdetails.html" class="btn btn-sm"><i class="far fa-comment-dots"></i> comment</a>
+													<a href="{{ route('post.show', $post->id) }}" class="btn btn-sm"><i class="far fa-comment-dots"></i> comment</a>
 												</div>
 												<div class="col-4">
 													<a href="postdetails.html" class="btn btn-sm"><i class="fa fa-share"></i> share</a>

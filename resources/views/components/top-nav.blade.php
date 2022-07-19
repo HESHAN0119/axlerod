@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-sm fixed-top">
     <div class="container">
-      <a href="index.html" class="navbar-brand">
+      <a href="/" class="navbar-brand">
         <img src="{{ asset('assets/img/logo.png') }}" id="navbarLogo" height="50" alt="AxleRod Logo" /> <!-- Navigation Bar Logo -->
       </a>
 
@@ -20,12 +20,12 @@
 
           <!-- Home Item -->
           <li class="nav-item mr-2"> 
-            <a href="index.html" class="nav-link menuText hmT"><i class="fas fa-home"></i> Home</a>
+            <a href="/" class="nav-link menuText hmT"><i class="fas fa-home"></i> Home</a>
           </li> <!-- Home Item end-->
           
           <!-- Post Item -->
           <li class="nav-item mr-2"> 
-            <a href="post.html" class="nav-link menuText hmT"><i class="fas fa-sticky-note"></i> Post</a>
+            <a href="{{ route('home') }}" class="nav-link menuText hmT"><i class="fas fa-sticky-note"></i> Post</a>
           </li> <!-- Post Item end-->
           
           <!-- AxleRod dropdown -->
@@ -51,8 +51,8 @@
                                                    document.getElementById('logout-form').submit();">
                                       {{ __('Logout') }}
                                       <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
+                                          @csrf
+                                      </form>
                                   </a>
                                   
               <a href="setting.html" class="nav-link menuText hmT ml-2 ml-md-0 ml-lg-0 ml-xl-0">Settings</a>

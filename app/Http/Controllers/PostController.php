@@ -7,6 +7,7 @@ use App\Models\PostType;
 use App\Models\User;
 use App\Models\VehicleType;
 use Illuminate\Http\Request;
+use Prophecy\Doubler\Generator\Node\ReturnTypeNode;
 
 class PostController extends Controller
 {
@@ -76,7 +77,8 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Post::find($id);
+        return view('post', ["post"=>$post]);
     }
 
     /**

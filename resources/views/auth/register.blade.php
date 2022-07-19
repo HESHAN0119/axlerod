@@ -91,27 +91,30 @@
                 />
               </div>
 
-              <form class="ml-2">
+              <form class="ml-2" method="POST" action="{{ route('register') }}">
+                @csrf
                 <div class="row mb-4">
                   <div class="col-md-1">
                     <i class="fas fa-user fa-lg mt-3 d-none d-md-block"></i>
                   </div>
                   <div class="col-md-5">
-                    <input
-                      type="text"
-                      id="firstName"
-                      class="form-control"
-                      placeholder="First Name"
-                    />
+                    <input id="fname" type="text" class="form-control @error('fname') is-invalid @enderror" name="fname" value="{{ old('fname') }}" required autocomplete="off" autofocus>
+
+                      @error('fname')
+                          <span class="invalid-feedback" role="alert">
+                              <strong>{{ $message }}</strong>
+                          </span>
+                      @enderror
                   </div>
                   <div class="d-block d-sm-none"><br /></div>
                   <div class="col-md-5">
-                    <input
-                      type="text"
-                      id="lastName"
-                      class="form-control"
-                      placeholder="Last Name"
-                    />
+                    <input id="lname" type="text" class="form-control @error('lname') is-invalid @enderror" name="lname" value="{{ old('lname') }}" required autocomplete="off" autofocus>
+
+                      @error('lname')
+                          <span class="invalid-feedback" role="alert">
+                              <strong>{{ $message }}</strong>
+                          </span>
+                      @enderror
                   </div>
                 </div>
 
@@ -120,12 +123,13 @@
                     <i class="fas fa-phone fa-lg mt-3 d-none d-md-block"></i>
                   </div>
                   <div class="col-md-10">
-                    <input
-                      type="number"
-                      id="number"
-                      class="form-control"
-                      placeholder="Mobile Number"
-                    />
+                    <input id="mobno" type="text" class="form-control @error('mobno') is-invalid @enderror" name="mobno" value="{{ old('mobno') }}" required autocomplete="off" autofocus>
+
+                      @error('mobno')
+                          <span class="invalid-feedback" role="alert">
+                              <strong>{{ $message }}</strong>
+                          </span>
+                      @enderror
                   </div>
                 </div>
 
@@ -136,12 +140,13 @@
                     ></i>
                   </div>
                   <div class="col-md-10">
-                    <input
-                      type="email"
-                      id="email"
-                      class="form-control"
-                      placeholder="Email"
-                    />
+                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                   </div>
                 </div>
 
@@ -151,16 +156,18 @@
                     <input
                       class="form-radio-input"
                       type="radio"
-                      name="personType"
+                      name="status"
                       id="radioButton"
+                      value="0"
                     />
                     <b>Driver</b>
 
                     <input
                       class="form-radio-input ml-4"
                       type="radio"
-                      name="personType"
+                      name="status"
                       id="radioButton"
+                      value="1"
                     />
                     <b>Mechanic</b>
                   </div>
@@ -171,12 +178,13 @@
                     <i class="fas fa-lock fa-lg mt-3 d-none d-md-block"></i>
                   </div>
                   <div class="col-md-10">
-                    <input
-                      type="password"
-                      id="password"
-                      class="form-control"
-                      placeholder="Password"
-                    />
+                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                   </div>
                 </div>
 
@@ -185,12 +193,7 @@
                     <i class="fas fa-lock fa-lg mt-3 d-none d-md-block"></i>
                   </div>
                   <div class="col-md-10">
-                    <input
-                      type="password"
-                      id="password"
-                      class="form-control"
-                      placeholder="Confirm Password"
-                    />
+                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                   </div>
                 </div>
 
@@ -209,7 +212,7 @@
                 </div>
 
                 <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                  <button type="button" class="btn btn-primary btn-md">
+                  <button type="submit" class="btn btn-primary btn-md">
                     Register
                   </button>
                 </div>
