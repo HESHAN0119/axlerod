@@ -14,7 +14,7 @@
                     @csrf
                     <input type="hidden" name="post_type" value="2">
                     <label for="problem">Title</label>
-                    <input type="text" class="form-control" name="title"/>
+                    <input type="text" class="form-control" name="title" maxlength = "30" />
     
                     <label for="problem">Vehicle Type</label>
                     <select name="vehicle_type_id" class="form-control">

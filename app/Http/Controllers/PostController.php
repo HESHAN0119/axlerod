@@ -45,7 +45,7 @@ class PostController extends Controller
     {
         if ($request->post_type == 1) {
             $validated = $request->validate([
-                "title" => ['required'],
+                "title" => ['required', 'max:30'],
                 "vehicle_type_id" => ['required'],
                 "problem" => ['required'],
                 "garage" => ['required'],
@@ -57,7 +57,7 @@ class PostController extends Controller
             $post_type = PostType::where("type", '=', 'Feedback')->get();
         } elseif ($request->post_type == 2) {
             $validated = $request->validate([
-                "title" => ['required'],
+                "title" => ['required', 'max:30'],
                 "vehicle_type_id" => ['required'],
                 "problem" => ['required'],
                 "city" => ["required"],

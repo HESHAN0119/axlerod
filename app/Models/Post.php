@@ -28,4 +28,8 @@ class Post extends Model
         return $this->hasMany(Comment::class);
     }
 
+    public function garage_profile () {
+        return $this->belongsTo(GarageProfile::class);
+    }
+
 }

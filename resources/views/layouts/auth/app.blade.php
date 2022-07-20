@@ -21,7 +21,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
-
+<script src="{{ asset('assets/js/jquery.js') }}"></script>
     <title>Timeline</title>
     <link rel="shortcut icon" href="{{ asset('assets/img/favicon.ico') }}" type="image/x-icon" />
   </head>

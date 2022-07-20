@@ -93,15 +93,15 @@
 												<br>
 												<small class="text-muted ml-2">{{ $post->vehicle_type->type }} | {{ $post->city }} | {{ $post->district }}</small>
 											</div>
-<<<<<<< HEAD
-											<a href="" class="btn btn-md btn-success mt-2 mb-1">
-											<i class="fas fa-tty mr-2 "></i> <small class="text-white">Garager Name | 0123456789</small>
-											</a>											
-											<p>{{ Str::limit($post->problem, 150) }}</p>
-=======
+											
+											@if ($post->post_type->type == "Feedback")
+												<a href="{{ route('garge_customer_view', $post->garage) }}" class="btn btn-sm btn-success mt-2 mb-1">
+													<i class="fas fa-tty mr-2 "></i> <small class="text-white">{{ $post->garage }}</small>
+												</a><br><br>
+											@else
 											<br>
-											<p>{{ Str::limit($post->problem, 120) }}</p>
->>>>>>> 89718065f6e5922cec4904065eb9799c394cf982
+											@endif
+											<p>{{ Str::limit($post->problem, 150) }}</p>
 										</div> <!-- Post Body end -->
 
 										<!-- Post Bottom Section -->
