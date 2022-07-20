@@ -72,7 +72,14 @@
 						</div> <!-- Post section - detail Post profile icon and name div combine tag end-->
 
 						<div class="mt-4"> <!-- Post Body  -->
-							<div style="border-left: 10px solid lightgreen">
+							<div style="border-left: 10px solid 
+                @if ($post->post_type->type == "Feedback")
+                  lightgreen
+                @elseif($post->post_type->type == "Need Help")
+                  red
+                @else
+                  yellow
+                @endif">
 								<span class="ml-2" style="font-size: 30px; ">{{ $post->title }}</span>
 								<br>
 								<small class="text-muted ml-2">{{ $post->vehicle_type->type }} | {{ $post->city }} | {{ $post->district }}</small>
