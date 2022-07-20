@@ -166,10 +166,10 @@
                       class="form-radio-input ml-4"
                       type="radio"
                       name="status"
-                      id="radioButton"
+                      id="garage"
                       value="1"
                     />
-                    <b>Mechanic</b>
+                    <b>Garage</b>
                   </div>
                 </div>
 

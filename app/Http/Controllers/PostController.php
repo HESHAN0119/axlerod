@@ -20,6 +20,8 @@ class PostController extends Controller
     {
         $posts = Post::orderBy('id', 'DESC')->get();
         $vehicle_types = VehicleType::all();
+
+        $post = Post::find(1);
         return view('posts', ["posts"=>$posts, "vehicle_types"=>$vehicle_types]);
     }
 
@@ -48,6 +50,8 @@ class PostController extends Controller
                 "problem" => ['required'],
                 "garage" => ['required'],
                 "feedback" => ['required'],
+                "city" => ["required"],
+                "district" => ["required"],
             ]);
 
             $post_type = PostType::where("type", '=', 'Feedback')->get();
@@ -56,6 +60,8 @@ class PostController extends Controller
                 "title" => ['required'],
                 "vehicle_type_id" => ['required'],
                 "problem" => ['required'],
+                "city" => ["required"],
+                "district" => ["required"],
             ]);
             $post_type = PostType::where("type", '=', 'Need Help')->get();
         }
@@ -78,6 +84,9 @@ class PostController extends Controller
     public function show($id)
     {
         $post = Post::find($id);
+        $post->update([
+            "views" => $post->views + 1
+        ]);
         return view('post', ["post"=>$post]);
     }
 
