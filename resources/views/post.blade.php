@@ -38,7 +38,6 @@
   
                 <!-- ++++++++++++++++++++++++++++ Post section - detail Post ++++++++++++++++++++++++++++ -->
                 <div class="my-2">
-<<<<<<< HEAD
                   <div class="card roundedBox">
                     <div class="container mt-3">
   
@@ -108,7 +107,6 @@
 								@else
 									yellow
 								@endif
-=======
                   	<div class="card roundedBox">
 						<div class="container mt-3">
 	
@@ -124,7 +122,6 @@
 							</div>
 							</div> <!-- Name and time include tag end -->
 	
->>>>>>> 89718065f6e5922cec4904065eb9799c394cf982
 							
 							<div class="ml-auto"> <!-- Three dots included button -->
 							<div class="dropdown">
