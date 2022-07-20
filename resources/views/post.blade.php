@@ -76,8 +76,10 @@
 												<span class="ml-2" style="font-size: 30px; ">{{ $post->title }}</span>
 												<br>
 												<small class="text-muted ml-2">Bike | Colombo | Kaduwela</small>
-											</div>
-											<br>
+                      </div>
+                      <a href="" class="btn btn-md btn-success mt-2 mb-1">
+											<i class="fas fa-tty mr-2 "></i> <small class="text-white">Garager Name | 0123456789</small>
+											</a>
 											<p>{{ Str::limit($post->problem, 150) }}</p>
 										</div> <!-- Post Body end -->
   
