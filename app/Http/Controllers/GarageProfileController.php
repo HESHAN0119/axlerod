@@ -102,8 +102,9 @@ class GarageProfileController extends Controller
     }
 
     public function autocomplete_garage_name (Request $request) {
-        $data = GarageProfile::select('garage_name', 'garage_mobno')->distinct()
+        $data = GarageProfile::select('garage_name', 'garage_mobno')
                     ->where('garage_name','LIKE',"%{$request->term}%")
+                    ->orWhere('garage_mobno','LIKE',"%{$request->term}%")
                     ->pluck('garage_name', 'garage_mobno');
 
         $values = [];

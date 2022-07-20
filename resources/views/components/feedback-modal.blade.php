@@ -70,7 +70,7 @@
 	<script>
 		var path = "{{ route('autocomplete_garage_name')  }}";
         $('#garage_name').typeahead({
-            minLength: 2,
+            // minLength: 2,
             source:  function (query, process) {
                 return $.get(path, { term: query }, function (data) {
                     return process(data);
