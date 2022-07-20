@@ -51,23 +51,27 @@
                     </div>
                   </div>
 
-                  <div class="row mb-4">
-                    <div class="col-md-1">
-                      <i
-                        class="fas fa-envelope fa-lg mt-3 d-none d-md-block"
-                      ></i>
-                    </div>
-                    <div class="col-md-10">
-                      <input
-                        type="email"
-                        name="garage_email"
-                        class="form-control"
-                        placeholder="Garage Email"
-                      />
-                    </div>
-                  </div>
+					<div class="row mb-4">
+						<div class="col-md-1">
+							<i class="fas fa-envelope fa-lg mt-3 d-none d-md-block"></i>
+						</div>
+						<div class="col-md-10">
+							<input type="email" name="garage_email" class="form-control" placeholder="Garage Email"/>
+						</div>
+					</div>
 
-                  <div class="row mb-4">
+					<div class="row mb-4">
+						<div class="col-md-1">
+							<i class="fas fa-location fa-lg mt-3 d-none d-md-block"></i>
+						</div>
+						<div class="col-md-10"> 
+							<input type="text" name="location" id="autocomplete" class="form-control" placeholder="Select Location/city"/>
+							<input type="hidden" name="latitude" id="latitude" class="form-control">
+							<input type="hidden" name="longtitude" id="longitude" class="form-control">
+						</div>
+					</div>
+
+                  {{-- <div class="row mb-4">
                     <div class="col-md-1">
                       <i class="fas fa-location fa-lg mt-3 d-none d-md-block"></i>
                     </div>
@@ -85,7 +89,7 @@
                         Set Location
                       </button>
                     </div>
-                  </div>
+                  </div> --}}
 
                   <div class="row mb-4">
                     <div class="col-md-1">
@@ -155,4 +159,19 @@
         </div>
         </div>
     </section>
+
+    <script src="https://maps.google.com/maps/api/js?key=AIzaSyDuRQucFhV9dLb9TBAp1yEnJgGCFnytOhQ&libraries=places&callback=initAutocomplete" type="text/javascript"></script>
+    
+    <script>
+        google.maps.event.addDomListener(window, 'load', initialize);
+        function initialize() {
+            var input = document.getElementById('autocomplete');
+            var autocomplete = new google.maps.places.Autocomplete(input);
+            autocomplete.addListener('place_changed', function() {
+            	var place = autocomplete.getPlace();
+                $('#latitude').val(place.geometry['location'].lat());
+                $('#longitude').val(place.geometry['location'].lng());
+            });
+        }
+    </script>
   @endsection

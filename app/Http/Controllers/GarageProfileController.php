@@ -43,6 +43,8 @@ class GarageProfileController extends Controller
             'garage_mobno'=>['required'],
             'garage_email'=>['required'],
             'location'=>['required'],
+            'longtitude'=>['required'],
+            'latitude'=>['required'],
             'bio'=>['required'],
         ]);
 
