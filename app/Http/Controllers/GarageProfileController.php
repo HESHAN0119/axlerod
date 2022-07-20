@@ -119,6 +119,11 @@ class GarageProfileController extends Controller
         $exp = explode(' | ', $garage);
         $garage_profile = GarageProfile::where('garage_name', '=', $exp[0])
                                 ->where('garage_mobno', '=', $exp[1])->first();
-        return view('garage.garage-customer-view', ['garage_profile'=>$garage_profile]);
+
+        $vehicle_types = VehicleType::all();
+        $garage_profile->update([
+            "views" => $garage_profile->views + 1
+        ]);
+        return view('garage.garage-customer-view', ['garage_profile'=>$garage_profile, "vehicle_types"=>$vehicle_types]);
     }
 }
