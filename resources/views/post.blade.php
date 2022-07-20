@@ -141,11 +141,23 @@
 						</div> <!-- Post section - detail Post profile icon and name div combine tag end-->
 
 						<div class="mt-4"> <!-- Post Body  -->
-							<div style="border-left: 10px solid lightgreen">
+							<div style="border-left: 10px solid 
+                @if ($post->post_type->type == "Feedback")
+                  lightgreen
+                @elseif($post->post_type->type == "Need Help")
+                  red
+                @else
+                  yellow
+                @endif">
 								<span class="ml-2" style="font-size: 30px; ">{{ $post->title }}</span>
 								<br>
 								<small class="text-muted ml-2">{{ $post->vehicle_type->type }} | {{ $post->city }} | {{ $post->district }}</small>
 							</div>
+              @if ($post->post_type->type == "Feedback")
+                <a href="" class="btn btn-sm btn-success mt-2 mb-1">
+                  <i class="fas fa-tty mr-2 "></i> <small class="text-white">Garager Name | 0123456789</small>
+                </a>
+              @endif
 						</div> <!-- Post Body end -->
 	
 	

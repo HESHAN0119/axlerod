@@ -15,11 +15,11 @@
           </button>
         </div>
         <div class="modal-body">
-          <form action="{{ route('post.store') }}" method="POST">
+          <form action="{{ route('post.store') }}" method="POST" autocomplete="off">
             @csrf
             <input type="hidden" name="post_type" value="1">
             <label for="problem">Title</label>
-            <input type="text" class="form-control" name="title"/>
+            <input type="text" class="form-control" name="title" maxlength = "30" />
             
             <label for="problem">Vehicle Type</label>
             <select name="vehicle_type_id" class="form-control">
@@ -49,7 +49,7 @@
             
 
             <label for="garage" class="mt-2">Garage</label>
-            <input type="text" name="garage" class="form-control">
+            <input type="text" name="garage" id="garage_name" class="form-control">
 
             <label for="feedback" class="mt-2">Feedback</label>
             <input type="text" class="form-control" name="feedback"/>
@@ -67,3 +67,19 @@
       </div>
     </div>
 </div>
+	<script>
+		var path = "{{ route('autocomplete_garage_name')  }}";
+        $('#garage_name').typeahead({
+            minLength: 2,
+            source:  function (query, process) {
+                return $.get(path, { term: query }, function (data) {
+                    return process(data);
+                });
+            },
+            // afterSelect: function (item) {
+				    //     $("#garage_id").val(item)
+                
+            // }
+        });
+
+    </script>
