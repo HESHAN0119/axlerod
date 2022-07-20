@@ -19,7 +19,7 @@
             @csrf
             <input type="hidden" name="post_type" value="1">
             <label for="problem">Title</label>
-            <input type="text" class="form-control" name="title"/>
+            <input type="text" class="form-control" name="title" maxlength = "30" />
             
             <label for="problem">Vehicle Type</label>
             <select name="vehicle_type_id" class="form-control">
@@ -50,7 +50,6 @@
 
             <label for="garage" class="mt-2">Garage</label>
             <input type="text" name="garage" id="garage_name" class="form-control">
-			<input type="hidden" name="garage_id" id="garage_id">
 
             <label for="feedback" class="mt-2">Feedback</label>
             <input type="text" class="form-control" name="feedback"/>
@@ -77,19 +76,10 @@
                     return process(data);
                 });
             },
-            afterSelect: function (item) {
-				$("#garage_id").val(item)
-                // $.ajax({
-                //     url: "../item/"+item,
-                //     type: "GET",
-                //     success: function(data){
-                //         image_url = "{{ asset('storage/item/') }}"
-                //         image_url += '/'
-                //         image_url += data.image
-                //         $('#display_area').html("<img src='" + image_url + "' class='rounded mx-auto d-block img-thumbnail'>")
-                //     }
-                // })
-            }
+            // afterSelect: function (item) {
+				    //     $("#garage_id").val(item)
+                
+            // }
         });
 
     </script>

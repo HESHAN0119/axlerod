@@ -100,11 +100,22 @@ class GarageProfileController extends Controller
     }
 
     public function autocomplete_garage_name (Request $request) {
-        $data = GarageProfile::select('garage_name')->distinct()
+        $data = GarageProfile::select('garage_name', 'garage_mobno')->distinct()
                     ->where('garage_name','LIKE',"%{$request->term}%")
-                    ->pluck('garage_name');
-        $values = array_values($data->toArray());
+                    ->pluck('garage_name', 'garage_mobno');
+
+        $values = [];
+        foreach ($data as $garage_mobno => $garage_name) {
+            array_push($values, $garage_name." | ".$garage_mobno);
+        }         
 
         return response()->json($values);
+    }
+
+    public function garge_customer_view ($garage) {
+        $exp = explode(' | ', $garage);
+        $garage_profile = GarageProfile::where('garage_name', '=', $exp[0])
+                                ->where('garage_mobno', '=', $exp[1])->first();
+        return view('garage.garage-customer-view', ['garage_profile'=>$garage_profile]);
     }
 }

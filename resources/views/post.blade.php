@@ -38,77 +38,6 @@
   
                 <!-- ++++++++++++++++++++++++++++ Post section - detail Post ++++++++++++++++++++++++++++ -->
                 <div class="my-2">
-<<<<<<< HEAD
-                  <div class="card roundedBox">
-                    <div class="container mt-3">
-  
-                      <div class="d-flex">  <!-- Post section - detail Post profile icon and name div combine tag -->
-                        <div><!-- Profile icon div -->
-                          <img class="mr-2 rounded-circle userProfImg" src="{{ asset('assets/img/pro.png') }}" alt="profile_name"/>
-                        </div> <!-- Profile icon div end-->
-  
-                        <div> <!-- Name and time include tag -->
-                          <div class="userTopName">
-                            {{ $post->user->fname.' '.$post->user->lname }} <i class="fas fa-circle greenState"></i><br />
-                            5h ago
-                          </div>
-                        </div> <!-- Name and time include tag end -->
-  
-                        
-                        <div class="ml-auto"> <!-- Three dots included button -->
-                          <div class="dropdown">
-  
-                            <button class="btn btn-sm dotIcon" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              <i class="fas fa-ellipsis-h" style="vertical-align: top"></i>
-                            </button>
-  
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton" > <!-- Three dots functionality  -->
-                              <a class="dropdown-item" href="#" ><i class="fas fa-pen mr-2"></i> Edit Post</a>
-                              <a class="dropdown-item" href="#" ><i class="fas fa-eye-slash mr-2"></i>Hide Post</a>
-                              <a class="dropdown-item" href="#" ><i class="fas fa-trash mr-2"></i>Delete Post</a>
-                            </div> <!-- Three dots functionality end -->
-                          
-                          </div>
-                        </div> <!-- Three dots included button -->
-                      </div> <!-- Post section - detail Post profile icon and name div combine tag end-->
-
-                      <div class="mt-4"> <!-- Post Body  -->
-											<div style="border-left: 10px solid lightgreen">
-												<span class="ml-2" style="font-size: 30px; ">{{ $post->title }}</span>
-												<br>
-												<small class="text-muted ml-2">Bike | Colombo | Kaduwela</small>
-                      </div>
-                      <a href="" class="btn btn-md btn-success mt-2 mb-1">
-											<i class="fas fa-tty mr-2 "></i> <small class="text-white">Garager Name | 0123456789</small>
-											</a>
-											<p>{{ Str::limit($post->problem, 150) }}</p>
-										</div> <!-- Post Body end -->
-  
-  
-                      	<div class="card mt-2 detailsBack"> <!-- Post Detils Card Section -->
-							<!-- Problem,Location,Feedback Details table -->
-							<table class="table table-borderless text-justify">
-								@if ($post->post_type->type == "Feedback")
-									<tr>
-										<td>Problem</td>
-										<td><i class="fas fa-chevron-circle-right"></i></td>
-										<td>{{ $post->problem }}</td>
-									</tr>
-									<tr>
-										<td>Feedback</td>
-										<td><i class="fas fa-chevron-circle-right"></i></td>
-										<td>{{ $post->feedback }}</td>
-									</tr>
-								@elseif($post->post_type->type == "Need Help")
-									<tr>
-										<td>Problem</td>
-										<td><i class="fas fa-chevron-circle-right"></i></td>
-										<td>{{ $post->problem }}</td>
-									</tr>
-								@else
-									yellow
-								@endif
-=======
                   	<div class="card roundedBox">
 						<div class="container mt-3">
 	
@@ -124,7 +53,6 @@
 							</div>
 							</div> <!-- Name and time include tag end -->
 	
->>>>>>> 89718065f6e5922cec4904065eb9799c394cf982
 							
 							<div class="ml-auto"> <!-- Three dots included button -->
 							<div class="dropdown">
@@ -149,6 +77,11 @@
 								<br>
 								<small class="text-muted ml-2">{{ $post->vehicle_type->type }} | {{ $post->city }} | {{ $post->district }}</small>
 							</div>
+              @if ($post->post_type->type == "Feedback")
+                <a href="" class="btn btn-sm btn-success mt-2 mb-1">
+                  <i class="fas fa-tty mr-2 "></i> <small class="text-white">Garager Name | 0123456789</small>
+                </a>
+              @endif
 						</div> <!-- Post Body end -->
 	
 	
