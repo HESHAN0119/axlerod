@@ -7,7 +7,8 @@
 			<div class="container">
 				<div class="row">
 					<!-- #####  Filter section ##### -->
-					<x-posts-filter-section></x-posts-filter-section>	
+					
+					<x-posts-filter-section :vehicletypes="$vehicle_types"/>
 					<!-- #####  Filter section end ##### -->
 
 					<!--   Post section ##### -->
@@ -78,17 +79,28 @@
 										</div> <!-- Post section - First Post profile icon and name div combine tag end-->
 
 										<div class="mt-4"> <!-- Post Body  -->
-											<h2 style="border-left: 10px solid
-												@if ($post->post_type->type == "Feedback")
-													lightgreen
-												@elseif($post->post_type->type == "Need Help")
-													red
-												@else
-													yellow
-												@endif
-											">
-												<span class="ml-2">{{ $post->title }}</span>
-											</h2>
+											<div style="border-left: 10px solid
+													@if ($post->post_type->type == "Feedback")
+														lightgreen
+													@elseif($post->post_type->type == "Need Help")
+														red
+													@else
+														yellow
+													@endif
+												">
+												
+												<span class="ml-2" style="font-size: 30px; ">{{ $post->title }}</span>
+												<br>
+												<small class="text-muted ml-2">{{ $post->vehicle_type->type }} | {{ $post->city }} | {{ $post->district }}</small>
+											</div>
+											
+											@if ($post->post_type->type == "Feedback")
+												<a href="{{ route('garge_customer_view', $post->garage) }}" class="btn btn-sm btn-success mt-2 mb-1">
+													<i class="fas fa-tty mr-2 "></i> <small class="text-white">{{ $post->garage }}</small>
+												</a><br><br>
+											@else
+											<br>
+											@endif
 											<p>{{ Str::limit($post->problem, 150) }}</p>
 										</div> <!-- Post Body end -->
 
@@ -133,103 +145,9 @@
     </section> <!-- ######### ^^^ Timeline Section end ^^^ ######### -->
 
 
-	<div class="modal fade needhelpModal" id="needHelpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" >
-		<div class="modal-dialog modal-dialog-centered" role="document">
-		  <div class="modal-content">
-			<div class="modal-header">
-			  <h5 class="modal-title" id="exampleModalLongTitle">
-				<i class="fas fa-tools mr-2"></i>Need Help
-			  </h5>
-			  <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
-				<span aria-hidden="true">&times;</span>
-			  </button>
-			</div>
-			<div class="modal-body">
-				<form action="{{ route('post.store') }}" method="POST">
-					@csrf
-					<input type="hidden" name="post_type" value="2">
-					<label for="problem">Title</label>
-					<input type="text" class="form-control" name="title"/>
+
+	<x-needhelp-modal :vehicletypes="$vehicle_types"/>
+    <x-feedback-modal :vehicletypes="$vehicle_types"/>
 	
-					<label for="problem">Vehicle Type</label>
-					<select name="vehicle_type_id" class="form-control">
-						<option value="">Select</option>
-						@foreach ($vehicle_types as $vehicle_type)
-							<option value="{{ $vehicle_type->id }}">{{ $vehicle_type->type }}</option>
-						@endforeach
-					</select>
-	
-					<label for="problem">Problem</label>
-					<input type="text" class="form-control" name="problem"/>
 
-					<label for="inputImages" class="mt-2"
-						>Image File <small>(Max size : 2MB)</small></label
-					>
-					<input type="file" class="form-control" id="customFile" />
-				
-			</div>
-			<div class="modal-footer">
-			  <button type="button" class="btn btn-danger" data-dismiss="modal">
-				Close
-			  </button>
-			  <button type="submit" class="btn btn-primary">Post</button>
-			</div>
-		</form>
-		  </div>
-		</div>
-	</div>
-
-	<div class="modal fade feedbackModal" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" >
-		<div class="modal-dialog modal-dialog-centered" role="document">
-		  <div class="modal-content">
-			<div class="modal-header">
-			  <h5 class="modal-title" id="exampleModalLongTitle">
-				<i class="fas fa-grin-stars mr-2"></i> Feedback
-			  </h5>
-			  <button
-				type="button"
-				class="close"
-				data-dismiss="modal"
-				aria-label="Close"
-			  >
-				<span aria-hidden="true">&times;</span>
-			  </button>
-			</div>
-			<div class="modal-body">
-			  <form action="{{ route('post.store') }}" method="POST">
-				@csrf
-				<input type="hidden" name="post_type" value="1">
-				<label for="problem">Title</label>
-				<input type="text" class="form-control" name="title"/>
-				
-				<label for="problem">Vehicle Type</label>
-				<select name="vehicle_type_id" class="form-control">
-					<option value="">Select</option>
-					@foreach ($vehicle_types as $vehicle_type)
-						<option value="{{ $vehicle_type->id }}">{{ $vehicle_type->type }}</option>
-					@endforeach
-				</select>
-
-				<label for="problem">Problem</label>
-				<input type="text" class="form-control" name="problem"/>
-
-				<label for="garage" class="mt-2">Garage</label>
-				<input type="text" name="garage" class="form-control">
-
-				<label for="feedback" class="mt-2">Feedback</label>
-				<input type="text" class="form-control" name="feedback"/>
-
-				<label for="inputImages" class="mt-2">Image File <small>(Max size : 2MB)</small></label>
-				<input type="file" class="form-control" id="customFile" />
-			</div>
-			<div class="modal-footer">
-			  <button type="button" class="btn btn-danger" data-dismiss="modal">
-				Close
-			  </button>
-			  <button type="submit" class="btn btn-primary">Post</button>
-			  </form>
-			</div>
-		  </div>
-		</div>
-	  </div>
 @endsection

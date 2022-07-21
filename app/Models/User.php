@@ -54,4 +54,8 @@ class User extends Authenticatable
     public function comments () {
         return $this->hasMany(Comment::class);
     }
+
+    public function garage_profile () {
+        return $this->hasOne(GarageProfile::class);
+    }
 }

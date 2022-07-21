@@ -26,39 +26,34 @@
                 <label for="inputState">
                 <h6 class="font-weight-bold text-muted mt-3"> Vehicle Type</h6>
                 </label>
-                <select id="inputState" class="form-control">
-                <option selected>Choose...</option>
-                <option>Car</option>
-                <option>Bus</option>
-                <option>Van</option>
-                <option>Bicycle</option>
-                </select>
+                <select name="vehicle_type_id" class="form-control">
+					<option value="">Choose...</option>
+					@foreach ($vehicletypes as $vehicle_type)
+						<option value="{{ $vehicle_type->id }}">{{ $vehicle_type->type }}</option>
+					@endforeach
+				</select>
             </div> <!-- Vehicle Type selector end -->
             
+
             <!-- Province selector -->
             <div class="form-group">
                 <label for="inputState">
-                <h6 class="font-weight-bold text-muted mt-3"> Province</h6>
+                <h6 class="font-weight-bold text-muted mt-3"> City</h6>
                 </label>
-                <select id="inputState" class="form-control">
-                <option selected>Choose...</option>
-                <option>Western Province</option>
-                <option>Eastern Province</option>
-                <option>North Province</option>
-                <option>South Province</option>
-                </select>
+                <input type="text" name="city" id="" class="form-control" placeholder="City">
             </div> <!-- Province selector end-->
 
             <!-- District selector -->
             <div class="form-group">
                 <label for="inputState">
-                <h6 class="font-weight-bold text-muted mt-3"> District</h6>
+                    <h6 class="font-weight-bold text-muted mt-3"> District</h6>
                 </label>
-                <select id="inputState" class="form-control">
-                <option selected>Choose...</option>
-                <option>Colombo</option>
-                <option>Gampaha</option>
-                <option>Kalutara</option>
+                <select id="inputState" class="form-control" name="district">
+                    <option selected>Choose...</option>
+                    <option>Colombo</option>
+                    <option>Gampaha</option>
+                    <option>Kalutara</option>
+
                 </select>
             </div> <!-- District selector end-->
 
