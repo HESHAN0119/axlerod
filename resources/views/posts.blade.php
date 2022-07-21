@@ -29,6 +29,8 @@
 
 
 						@foreach ($posts as $post)
+							<x-edit-needhelp-modal :vehicletypes="$vehicle_types" :post="$post"/>
+							<x-edit-feedback-modal :vehicletypes="$vehicle_types" :post="$post"/>
 							<div class="my-2">
 								<div class="card roundedBox">
 									<div class="container mt-3">
@@ -64,7 +66,15 @@
 
 												<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton" > <!-- Three dots functionality  -->
 													@if ($post->user->id == auth()->user()->id)
-														<a class="dropdown-item" href="#" ><i class="fas fa-pen mr-2"></i> Edit Post</a>
+														<a class="dropdown-item" href="#" data-toggle="modal" data-target="
+															@if ($post->post_type->type == "Feedback")
+																#editFeedbackModal{{ $post->id }}
+															@elseif($post->post_type->type == "Need Help")
+																#editNeedHelpModal{{ $post->id }}
+															@else
+															@endif	
+														"><i class="fas fa-pen mr-2"></i> Edit Post</a>
+														
 														<a class="dropdown-item" href="#" ><i class="fas fa-eye-slash mr-2"></i>Hide Post</a>
 														<a class="dropdown-item" href="#" ><i class="fas fa-trash mr-2"></i>Delete Post</a>
 													@else

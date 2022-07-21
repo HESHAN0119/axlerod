@@ -110,7 +110,35 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
+        if ($request->post_type == 1) {
+            $validated = $request->validate([
+                "title" => ['required', 'max:30'],
+                "vehicle_type_id" => ['required'],
+                "problem" => ['required'],
+                "garage" => ['required'],
+                "feedback" => ['required'],
+                "city" => ["required"],
+                "district" => ["required"],
+            ]);
+
+        } elseif ($request->post_type == 2) {
+            $validated = $request->validate([
+                "title" => ['required', 'max:30'],
+                "vehicle_type_id" => ['required'],
+                "problem" => ['required'],
+                "city" => ["required"],
+                "district" => ["required"],
+            ]);
+        }
+
+        $post = Post::find($id);
+        $post->update($validated);
+
+        return back();
+
+
+
     }
 
     /**
