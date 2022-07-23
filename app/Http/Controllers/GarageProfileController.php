@@ -102,8 +102,9 @@ class GarageProfileController extends Controller
     }
 
     public function autocomplete_garage_name (Request $request) {
-        $data = GarageProfile::select('garage_name', 'garage_mobno')->distinct()
+        $data = GarageProfile::select('garage_name', 'garage_mobno')
                     ->where('garage_name','LIKE',"%{$request->term}%")
+                    ->orWhere('garage_mobno','LIKE',"%{$request->term}%")
                     ->pluck('garage_name', 'garage_mobno');
 
         $values = [];
@@ -118,6 +119,46 @@ class GarageProfileController extends Controller
         $exp = explode(' | ', $garage);
         $garage_profile = GarageProfile::where('garage_name', '=', $exp[0])
                                 ->where('garage_mobno', '=', $exp[1])->first();
-        return view('garage.garage-customer-view', ['garage_profile'=>$garage_profile]);
+
+        $vehicle_types = VehicleType::all();
+        $garage_profile->update([
+            "views" => $garage_profile->views + 1
+        ]);
+        return view('garage.garage-customer-view', ['garage_profile'=>$garage_profile, "vehicle_types"=>$vehicle_types]);
     }
+
+    public function set_current_location (Request $request) {
+        $user = User::find(auth()->user()->id);
+        $user->update([
+            'longtitude'=>$request->longtitude,
+            'latitude'=>$request->latitude
+        ]);
+        return response()->json(['success'=>'Ajax request submitted successfully']);
+    }
+
+    public function find_garage () {
+        $garage_profiles = GarageProfile::all();
+
+        $user = User::find(auth()->user()->id);
+        $filtered_profiles = [];
+        foreach ($garage_profiles as $garage_profile) {
+            if ($garage_profile->address_lng == NULL && $garage_profile->address_lat == NULL) {
+                $garage_latitude = $garage_profile->latitude;
+                $garage_longtitude = $garage_profile->longtitude;
+            } else {
+                $garage_latitude = $garage_profile->address_lat;
+                $garage_longtitude = $garage_profile->address_lng;
+            }
+            $distance = $garage_profile->getDistance($user->latitude, $user->longtitude, $garage_latitude, $garage_longtitude);
+            if ($distance < 50) {
+                array_push($filtered_profiles, $garage_profile);
+            }
+        }
+
+        return view('garage.all-and-nearest-garages', ['garage_profiles'=>$garage_profiles, 'filtered_profiles'=>$filtered_profiles]);
+
+    }
+
+    
+    
 }

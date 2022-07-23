@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('address')->nullable();
             $table->double('address_lng')->nullable();
             $table->double('address_lat')->nullable();
+            $table->integer('views')->default(0);
         });
     }
 
@@ -31,6 +32,7 @@ return new class extends Migration
             $table->dropColumn('address');
             $table->dropColumn('address_lng');
             $table->dropColumn('address_lat');
+            $table->dropColumn('views');
         });
     }
 };

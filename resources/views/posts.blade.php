@@ -29,6 +29,8 @@
 
 
 						@foreach ($posts as $post)
+							<x-edit-needhelp-modal :vehicletypes="$vehicle_types" :post="$post"/>
+							<x-edit-feedback-modal :vehicletypes="$vehicle_types" :post="$post"/>
 							<div class="my-2">
 								<div class="card roundedBox">
 									<div class="container mt-3">
@@ -64,7 +66,15 @@
 
 												<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton" > <!-- Three dots functionality  -->
 													@if ($post->user->id == auth()->user()->id)
-														<a class="dropdown-item" href="#" ><i class="fas fa-pen mr-2"></i> Edit Post</a>
+														<a class="dropdown-item" href="#" data-toggle="modal" data-target="
+															@if ($post->post_type->type == "Feedback")
+																#editFeedbackModal{{ $post->id }}
+															@elseif($post->post_type->type == "Need Help")
+																#editNeedHelpModal{{ $post->id }}
+															@else
+															@endif	
+														"><i class="fas fa-pen mr-2"></i> Edit Post</a>
+														
 														<a class="dropdown-item" href="#" ><i class="fas fa-eye-slash mr-2"></i>Hide Post</a>
 														<a class="dropdown-item" href="#" ><i class="fas fa-trash mr-2"></i>Delete Post</a>
 													@else
@@ -93,14 +103,6 @@
 												<br>
 												<small class="text-muted ml-2">{{ $post->vehicle_type->type }} | {{ $post->city }} | {{ $post->district }}</small>
 											</div>
-<<<<<<< HEAD
-											<a href="" class="btn btn-md btn-success mt-2 mb-1">
-											<i class="fas fa-tty mr-2 "></i> <small class="text-white">Garager Name | 0123456789</small>
-											</a>											
-											<p>{{ Str::limit($post->problem, 150) }}</p>
-											<br>
-											<p>{{ Str::limit($post->problem, 120) }}</p>
-=======
 											
 											@if ($post->post_type->type == "Feedback")
 												<a href="{{ route('garge_customer_view', $post->garage) }}" class="btn btn-sm btn-success mt-2 mb-1">
@@ -110,7 +112,6 @@
 											<br>
 											@endif
 											<p>{{ Str::limit($post->problem, 150) }}</p>
->>>>>>> 219396e0c96255245346eec36c1ea2f0c47b3cd6
 										</div> <!-- Post Body end -->
 
 										<!-- Post Bottom Section -->

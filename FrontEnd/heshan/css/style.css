@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap');
+
+body {
+   line-height: 1.8;
+   color: #898fa1;
+   font-size: 15px;
+   font-family: 'Lato', sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6 {
+   font-weight: 700;
+   letter-spacing: 1px;
+   text-transform: uppercase;
+   color: #11245A;
+}
+
+.title-sm {
+   padding-top: 10px;
+   padding-bottom: 10px;
+   font-size: 16px;
+   letter-spacing: 1px;
+}
+.s-para{
+   padding-bottom: 10px;
+}
+
+a {
+   font-weight: 700;
+   transition: all 0.4s ease;
+   text-decoration: none;
+}
+
+img {
+   width: 100%;
+}
+
+small {
+   font-size: 12px;
+   letter-spacing: 2px;
+   font-weight: 700;
+   text-transform: uppercase;
+}
+
+section {
+   padding-left: 10%;
+   padding-right: 10%;
+   padding-top: 50px;
+   padding-bottom: 50px;
+}
+
+.navbar {
+   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* .logo-text {
+   font-size: 22px;
+   text-transform: uppercase;
+   color: #11245A !important;
+} */
+.navbar .nav-link {
+   font-size: 12px;
+   text-transform: uppercase;
+   letter-spacing: 1px;
+}
+
+/* .navbar-light .navbar-nav .nav-link.active {
+   color: #E93B81;
+} */
+
+#home {
+   
+   background: linear-gradient(rgba(20, 30, 100, 0.6), rgba(30, 40, 60, 0.98)), url(../img/cover1.jpg);
+   min-height: 50vh;
+   background-size: cover;
+   background-position: center;
+   background-attachment: fixed;
+   display: flex;
+   align-items: center;
+}
+
+#home h1 {
+   
+   font-weight: 700;
+}
+
+#home p {
+   max-width: 550px;
+   margin: 18px auto;
+}
+
+#profile_pic{
+  
+   width: 200px;
+   height: 200px;
+   border-radius: 50%;
+
+}
+
+.make_ap{
+   width: 280px;
+   margin-bottom: 80px;
+}
+.make_ap:hover {
+   -ms-transform: scale(1.05);
+   -webkit-transform: scale(1.05);
+   transform: scale(1.05);
+}
+
+
+.why-para{
+   font-size: 22px;
+   color: #596178;
+   margin-bottom: 100px;
+
+}
+
+.btn {
+   font-weight: 700;
+   font-size: 15px;
+   text-transform: capitalize;
+   padding: 12px 28px;
+   border-radius: 0;
+}
+
+.btn-brand {
+   background-color: #c37f27;
+   color: #fff;
+}
+
+.btn-brand:hover {
+   background-color: #db8d27;
+   color: #fff;
+}
+
+.section-intro {
+   text-align: center;
+   margin-bottom: 60px;
+}
+
+.section-intro .hline {
+   width: 120px;
+   height: 2px;
+   background-color: rgba(0, 0, 0, 0.1);
+   margin: 16px auto 0 auto;
+}
+
+.icon-box {
+   width: 60px;
+   height: 60px;
+   background-color: #E93B81;
+   color: #fff;
+   border-radius: 4px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-size: 32px;
+   flex: none;
+}
+
+
+
+.feature .icon-box {
+   width: 34px;
+   height: 34px;
+   border-radius: 100px;
+   font-size: 24px;
+}
+
+
+#clients img {
+   height: 35px;
+}
+.row{
+   margin-left: 10%;
+}
+
+
+
+#cta {
+   background-color: #2f98ef;
+}
+
+
+.footer-top {
+   padding-top: 80px;
+   padding-bottom: 30px;
+}
+
+.footer-bottom {
+   padding-top: 30px;
+   padding-bottom: 30px;
+   border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+footer .footer-links a,
+footer .social-icons a {
+   color: #898fa1;
+}
+
+footer .social-icons a {
+   font-size: 24px;
+}
+
+footer .footer-links a {
+   display: block;
+   font-weight: 400;
+}
+
+footer .social-icons a:hover,
+footer .footer-links a:hover {
+   color: #E93B81;
+}
+
+
+/* --------Navigation bar------------ */
+
+/* Navabar background color */
+.navbar {
+   background-color: #ffffff;
+ }
+ 
+ /* Navbar Logo Positon and Size */
+ #navbarLogo {
+   margin-top: -10px;
+   margin-bottom: -10px;
+ }
+ 
+ /* Find Garage Button*/
+ #findGarageButton {
+   border-radius: 25px;
+   padding: 4px;
+ }
+ 
+ /* Navbar Menu Itemm Color */
+ .menuText {
+   /* background-color: #1616ff; */
+  
+   color: #2f98ef;
+   font-size: 1.1rem;
+   font-weight: 500;
+   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+ }
+ 
+ /* navbar Menu Item Hover Color */
+ a.hmT:hover {
+   color: #0264cd;
+   /* border-bottom: 2px solid #2f98ef; */
+ }
+
+ 
+ .hmT1 {
+   background-color: #2f98ef;
+ }
+ 
+ a.hmT1:hover {
+   background-color: #0264cd;
+ }
+ 
+ /* Navbar Toggle icon color change - in the small screens */
+ .custom-toggler .navbar-toggler-icon {
+   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 123, 255, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+ }
+ 
+ .custom-toggler.navbar-toggler {
+   border-color: #007bff;
+ }
+ 
