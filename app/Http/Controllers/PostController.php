@@ -151,4 +151,12 @@ class PostController extends Controller
     {
         //
     }
+
+    public function filter_posts(Request $request) {
+        if ($request->vehicle_type_id == "" && $request->city == "" && $request->district == "") {
+            return back();
+        } else {
+            dd("HLOO");
+        }
+    }
 }

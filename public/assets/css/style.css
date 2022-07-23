@@ -184,20 +184,8 @@ a.hmT1:hover {
   height: 15px;
 }
 
-/*Input feild with Search Button */
-.custom-search {
-  position: relative;
-}
-.custom-search-input {
-  width: 100%;
-  padding-right: 100px !important;
-  box-sizing: border-box;
-}
-.custom-search-botton {
-  position: absolute;
-  right: 3px;
-  top: 3px;
-  bottom: 3px;
-  line-height: 1 !important;
-  z-index: 1;
+/* /------Go To Profile Butto In Find Garage Page ------/ */
+.goToProf{
+  background-color: #2f98ef;
+  color: white;
 }
