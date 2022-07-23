@@ -11,7 +11,7 @@
             <div class="mt-1">
                 <div class="form-group">
                 <h6 class="text-muted">
-                    <a href="" class="text-danger text-decoration-none">Reset All</a>
+                    <a href="{{ route('home') }}" class="text-danger text-decoration-none">Reset All</a>
                 </h6>
                 </div>
             </div>

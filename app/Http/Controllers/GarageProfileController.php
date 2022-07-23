@@ -126,4 +126,39 @@ class GarageProfileController extends Controller
         ]);
         return view('garage.garage-customer-view', ['garage_profile'=>$garage_profile, "vehicle_types"=>$vehicle_types]);
     }
+
+    public function set_current_location (Request $request) {
+        $user = User::find(auth()->user()->id);
+        $user->update([
+            'longtitude'=>$request->longtitude,
+            'latitude'=>$request->latitude
+        ]);
+        return response()->json(['success'=>'Ajax request submitted successfully']);
+    }
+
+    public function find_garage () {
+        $garage_profiles = GarageProfile::all();
+
+        $user = User::find(auth()->user()->id);
+        $filtered_profiles = [];
+        foreach ($garage_profiles as $garage_profile) {
+            if ($garage_profile->address_lng == NULL && $garage_profile->address_lat == NULL) {
+                $garage_latitude = $garage_profile->latitude;
+                $garage_longtitude = $garage_profile->longtitude;
+            } else {
+                $garage_latitude = $garage_profile->address_lat;
+                $garage_longtitude = $garage_profile->address_lng;
+            }
+            $distance = $garage_profile->getDistance($user->latitude, $user->longtitude, $garage_latitude, $garage_longtitude);
+            if ($distance < 50) {
+                array_push($filtered_profiles, $garage_profile);
+            }
+        }
+
+        return view('garage.all-and-nearest-garages', ['garage_profiles'=>$garage_profiles, 'filtered_profiles'=>$filtered_profiles]);
+
+    }
+
+    
+    
 }
