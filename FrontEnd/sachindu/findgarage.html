@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+      integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="CSS/style.css" />
+
+    <title>Timeline</title>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+  </head>
+
+  <body>
+
+    <!-- ########################################  Navigation Bar ######################################## -->
+    <nav class="navbar navbar-expand-sm fixed-top">
+      <div class="container">
+        <a href="index.html" class="navbar-brand">
+          <img src="img/logo.png" id="navbarLogo" height="50" alt="AxleRod Logo" /> <!-- Navigation Bar Logo -->
+        </a>
+
+        <!-- Navigation Bar Toggle Button - This will appear only in small screens -->
+        <button class="navbar-toggler custom-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+          <!-- Toggle icon --> <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navigation Bar - Menu Items -->
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav ml-auto">
+
+            <!-- Find Garage Item -->
+            <li class="nav-item mr-2">
+              <a href="findgarage.html" id="findGarageButton" class="nav-link menuText text-white px-4 mt-3 mt-md-1 mt-lg-1 mt-xl-1 hmT1"><i class="fas fa-tools mr-2"></i> Find Garage</a>
+            </li> <!-- Find Garage Item end-->
+
+            <!-- Home Item -->
+            <li class="nav-item mr-2"> 
+              <a href="index.html" class="nav-link menuText hmT"><i class="fas fa-home"></i> Home</a>
+            </li> <!-- Home Item end-->
+            
+            <!-- Post Item -->
+            <li class="nav-item mr-2"> 
+              <a href="post.html" class="nav-link menuText hmT"><i class="fas fa-sticky-note"></i> Post</a>
+            </li> <!-- Post Item end-->
+            
+            <!-- AxleRod dropdown -->
+            <li class="nav-item dropdown mr-2"> 
+              <a class="nav-link menuText hmT" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false" ><i class="fas fa-globe"></i> AxleRod </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a href="aboutus.html" class="nav-link menuText hmT ml-2 ml-md-0 ml-lg-0 ml-xl-0" >About Us</a>
+                <a href="faq.html" class="nav-link menuText hmT ml-2 ml-md-0 ml-lg-0 ml-xl-0" >FAQ</a>
+                <a href="contactus.html" class="nav-link menuText hmT ml-2 ml-md-0 ml-lg-0 ml-xl-0" >Contact Us</a>
+              </div>
+            </li> <!-- AxleRod dropdown end-->
+
+            <!-- Profile dropdown -->
+            <li class="nav-item dropdown mr-2"> 
+              <a class="nav-link menuText hmT" href="account.html" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-user-circle"></i> Profile
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a href="account.html" class="nav-link menuText hmT ml-2 ml-md-0 ml-lg-0 ml-xl-0">Account</a>
+                <a href="booking.html" class="nav-link menuText hmT ml-2 ml-md-0 ml-lg-0 ml-xl-0">Booking</a>
+                <a href="setting.html" class="nav-link menuText hmT ml-2 ml-md-0 ml-lg-0 ml-xl-0">Settings</a>
+              </div>
+            </li> <!-- Profile dropdown end-->
+
+          </ul> <!-- Navigation bar unorder-list end -->
+        </div> <!-- Navigation Bar Menu Item End -->    
+      </div> <!-- Conatiner End -->
+    </nav> <!-- ########################################  Navigation Bar End ######################################## -->
+
+
+    <div class="mt-4"></div> <!-- Space after the navigation bar -->
+
+
+    <!-- ######################################## ^^^ Timeline Section ^^^ ######################################## -->
+    <section id="timeline">
+      <div class="mx-md-5">
+        <div class="container">
+          <div class="row">
+
+            <!-- ###################################  Filter section ################################### -->
+            <div class="col-md-3 d-none d-md-block " id="filter-section">
+              <div class="card mt-5 position-fixed" style="height: 88vh; width: 17%;">
+                <div class="card-body bg-white ">
+                  <div class="mt-1">
+
+                    <!-- filter section - Filter and Reset Button -->
+                    <div class="row justify-content-between mx-1">
+                      <div>
+                        <h5 class="font-weight-bold text-muted">Filters</h5>
+                      </div>
+                      <div class="mt-1">
+                        <div class="form-group">
+                          <h6 class="text-muted">
+                            <a href="" class="text-danger text-decoration-none">Reset All</a>
+                          </h6>
+                        </div>
+                      </div>
+                    </div> <!-- filter section - Filter and Reset Button -->
+
+                  </div>
+                  <!-- filter section - form with selectors -->
+                  <div>
+                    <form action=""> <!-- form start -->
+                      <!-- Vehicle Type selector -->
+                      <div class="form-group">
+                        <label for="inputState">
+                          <h6 class="font-weight-bold text-muted mt-3"> Vehicle Type</h6>
+                        </label>
+                        <select id="inputState" class="form-control">
+                          <option selected>Choose...</option>
+                          <option>Car</option>
+                          <option>Bus</option>
+                          <option>Van</option>
+                          <option>Bicycle</option>
+                        </select>
+                      </div> <!-- Vehicle Type selector end -->
+                      
+                      <!-- Province selector -->
+                      <div class="form-group">
+                        <label for="inputState">
+                          <h6 class="font-weight-bold text-muted mt-3"> Province</h6>
+                        </label>
+                        <select id="inputState" class="form-control">
+                          <option selected>Choose...</option>
+                          <option>Western Province</option>
+                          <option>Eastern Province</option>
+                          <option>North Province</option>
+                          <option>South Province</option>
+                        </select>
+                      </div> <!-- Province selector end-->
+
+                      <!-- District selector -->
+                      <div class="form-group">
+                        <label for="inputState">
+                          <h6 class="font-weight-bold text-muted mt-3"> District</h6>
+                        </label>
+                        <select id="inputState" class="form-control">
+                          <option selected>Choose...</option>
+                          <option>Colombo</option>
+                          <option>Gampaha</option>
+                          <option>Kalutara</option>
+                        </select>
+                      </div> <!-- District selector end-->
+
+                      <!-- Search Button-->
+                      <div>
+                        <button class="btn btn-md btn-success w-100" type="button" >Search</button>
+                      </div> <!-- Search Button end-->
+                    </form> <!-- form end -->
+
+                    <hr> <!-- divider-->
+
+                    <!-- Post Status indication text set -->
+                    <div id="buttonStatus">
+                      <h6 class="font-weight-bold text-muted mt-3">Post Status</h6>
+                      <div class="ml-1">
+                        <i class="fas fa-circle greenState"></i> Feedback <br />
+                        <i class="fas fa-circle redState"></i> Need Help <br />
+                        <i class="fas fa-circle yellowState"></i> Mechanic Ads
+                      </div>
+                    </div><!-- Post Status indication text set end -->
+                  </div><!-- filter section - form with selectors -->
+                </div> <!-- card body end -->
+              </div> <!-- card end -->
+            </div> <!-- ###################################  Filter section end ################################### -->
+
+
+
+            <!-- ###################################  Post section ################################### -->
+            <div class="col-md-6" id="post-section">
+
+              <!-- Top head background image section -->
+              <div class="imageBack mt-5 mb-2">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="mb-4">
+                      <form action="">
+                      <div class="input-group md-form form-sm form-2 pl-0">
+                        <input class="form-control my-0 py-1 " type="text" placeholder="Search" aria-label="Search">
+                        <div class="input-group-append">
+                          <button type="button" class="btn input-group-text " style="background-color: #2f98ef;"><i class="fas fa-search text-white"
+                              aria-hidden="true"></i></button>
+                        </div>
+                      </div>                    
+                    </form>
+                  </div>
+                  <div>
+                    <!--Google map-->
+                    <div class="map-responsive">
+                      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11880.492291371422!2d12.4922309!3d41.8902102!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x28f1c82e908503c4!2sColosseo!5e0!3m2!1sit!2sit!4v1524815927977" width="100%" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
+                  </div>
+                    <!--Google Maps-->
+                  </div>
+                  </div>
+                </div>
+              </div><!-- Top head background image section end-->
+
+
+
+
+              <!-- ********************** Post section button set mobile view ********************** -->
+              <div class="d-md-none bg-white rounded">
+                <div class="card">
+                  <div class="text-center">
+
+                    <!-- Filter post button -->
+                    <button class="btn btn-sm" onclick="openNav()">
+                      <i class="fas fa-filter text-right"></i> Filter Post
+                    </button><!-- Filter post button end-->
+                    
+                  </div>
+                </div>
+              </div> <!-- ********************** Post section button set mobile view end ********************** -->
+
+
+
+              <!-- ********************** Post section mobile view - sidenav ********************** -->
+              <div id="mySidenav" class="sidenav d-lg-none">
+                <button type="button" class="closebtn btn mt-5" onclick="closeNav()">&times;</button>
+
+                <div class="ml-4 mt-4">
+                  <form action=""> <!-- form start -->
+                    
+                    <!-- Vehicle Type selector -->
+                    <div class="form-group" style="width: 85%;">
+                      <label for="inputState">
+                        <h6 class="font-weight-bold text-muted mt-3"> Vehicle Type</h6>
+                      </label>
+                      <select id="inputState" class="form-control">
+                        <option selected>Choose...</option>
+                        <option>Car</option>
+                        <option>Bus</option>
+                        <option>Van</option>
+                        <option>Bicycle</option>
+                      </select>
+                    </div> <!-- Vehicle Type selector end -->
+                    
+                    <!-- Province selector -->
+                    <div class="form-group" style="width: 85%;">
+                      <label for="inputState">
+                        <h6 class="font-weight-bold text-muted mt-3"> Province</h6>
+                      </label>
+                      <select id="inputState" class="form-control">
+                        <option selected>Choose...</option>
+                        <option>Western Province</option>
+                        <option>Eastern Province</option>
+                        <option>North Province</option>
+                        <option>South Province</option>
+                      </select>
+                    </div> <!-- Province selector end-->
+
+                    <!-- District selector -->
+                    <div class="form-group" style="width: 85%;">
+                      <label for="inputState">
+                        <h6 class="font-weight-bold text-muted mt-3"> District</h6>
+                      </label>
+                      <select id="inputState" class="form-control">
+                        <option selected>Choose...</option>
+                        <option>Colombo</option>
+                        <option>Gampaha</option>
+                        <option>Kalutara</option>
+                      </select>
+                    </div> <!-- District selector end-->
+
+                    <!-- City selector -->
+                    <div class="form-group" style="width: 85%;">
+                      <label for="inputState">
+                        <h6 class="font-weight-bold text-muted mt-3"> City</h6>
+                      </label>
+                      <select id="inputState" class="form-control">
+                        <option selected>Choose...</option>
+                        <option>Kaduwela</option>
+                        <option>Hanwella</option>
+                        <option>Malabe</option>
+                        <option>Angoda</option>
+                      </select>
+                    </div> <!-- City selector end-->
+
+                  </form> <!-- form end -->
+                </div>
+
+                <!-- Search and Reset Button -->
+                <div class="text-right mr-2">
+                  <button class="btn btn-md btn-danger mr-1" type="reset">
+                    Reset All
+                  </button>
+                  <button class="btn btn-md btn-success mr-5" type="button">
+                    Search
+                  </button>
+                </div><!-- Search and Reset Button end -->
+              </div> <!-- ********************** Post section mobile view - sidenav end ********************** -->
+
+              
+
+              
+              <!-- ++++++++++++++++++++++++++++ Map Profile Card - First Profile ++++++++++++++++++++++++++++ -->
+              <div class="my-2">
+                <div class="card roundedBox">
+
+                  <div class="card-body">
+                    <div class="d-flex">  <!-- Map Profile Card section - profile icon, Garage Name, verified, rating -->
+                  
+                      <div class="row ml-1">
+                        <div><!-- Profile icon div -->
+                          <img class="mr-2 rounded-circle userProfImg" src="img/pro.png" alt="profile_name"/>
+                        </div> <!-- Profile icon div end-->
+  
+                        <div> <!-- Name  include tag -->
+                            <h5 class="mt-2">Garage Name</h5>                        
+                        </div> <!-- Name  include tag end -->
+                      </div>
+                      
+                      <div class="ml-auto"> <!-- Verified and rating indicators -->
+                        <small class="bg-success px-2 text-white" style="border-radius:20px;" >Verified</small><br>
+                        <span class="ml-2"><i class="fa fa-star" style="color:#FFCD3C;"></i> 5.7</span>
+                      </div> <!-- Verified and rating indicators -->
+
+                    </div> <!-- Map Profile Card section - profile icon, Garage Name, verified, rating end -->
+
+                    <div class="mt-2"> <!-- Garage Details Body  -->
+                      <table>
+                        <tr>
+                          <td>Garage Owner Name:</td>
+                          <td>Sachindu Malshan</td>
+                        </tr>
+                        <tr>
+                          <td>Contact Number:</td>
+                          <td>0766166355</td>
+                        </tr>
+                        <tr>
+                          <td>Location:</td>
+                          <td>Colombo,Kaduwela</td>
+                        </tr>
+                      </table>
+                    </div> <!-- Garage Details Body end  -->
+
+                  </div>
+
+                  <div class="card-footer">
+                    <a href=""class="btn btn-sm goToProf"><i class="fa fa-address-card mr-1"></i> Go to Profile</a>
+                  </div>
+                  
+                </div>
+              </div> <!-- ++++++++++++++++++++++++++++ Map Profile Card - First Profile end++++++++++++++++++++++++++++ -->
+
+
+
+              <!-- ++++++++++++++++++++++++++++ Map Profile Card - Second Profile ++++++++++++++++++++++++++++ -->
+              <div class="my-2">
+                <div class="card roundedBox">
+
+                  <div class="card-body">
+                    <div class="d-flex">  <!-- Map Profile Card section - profile icon, Garage Name, verified, rating -->
+                  
+                      <div class="row ml-1">
+                        <div><!-- Profile icon div -->
+                          <img class="mr-2 rounded-circle userProfImg" src="img/pro.png" alt="profile_name"/>
+                        </div> <!-- Profile icon div end-->
+  
+                        <div> <!-- Name  include tag -->
+                            <h5 class="mt-2">Garage Name</h5>                        
+                        </div> <!-- Name  include tag end -->
+                      </div>
+                      
+                      <div class="ml-auto"> <!-- Verified and rating indicators -->
+                        <small class="bg-success px-2 text-white" style="border-radius:20px;" >Verified</small><br>
+                        <span class="ml-2"><i class="fa fa-star" style="color:#FFCD3C;"></i> 5.7</span>
+                      </div> <!-- Verified and rating indicators -->
+
+                    </div> <!-- Map Profile Card section - profile icon, Garage Name, verified, rating end -->
+
+                    <div class="mt-2"> <!-- Garage Details Body  -->
+                      <table>
+                        <tr>
+                          <td>Garage Owner Name:</td>
+                          <td>Sachindu Malshan</td>
+                        </tr>
+                        <tr>
+                          <td>Contact Number:</td>
+                          <td>0766166355</td>
+                        </tr>
+                        <tr>
+                          <td>Location:</td>
+                          <td>Colombo,Kaduwela</td>
+                        </tr>
+                      </table>
+                    </div> <!-- Garage Details Body end  -->
+
+                  </div>
+
+                  <div class="card-footer">
+                    <a href=""class="btn btn-sm goToProf"><i class="fa fa-address-card mr-1"></i> Go to Profile</a>
+                  </div>
+                  
+                </div>
+              </div> <!-- ++++++++++++++++++++++++++++ Map Profile Card - Second Profile end++++++++++++++++++++++++++++ -->
+
+            </div> <!-- ###################################  Post section End ################################### -->
+
+
+
+
+
+
+            <!-- ###################################  Booking details side menu section ################################### -->
+            <div class="col-md-3 d-none d-md-block" id="booking-section">
+              <div class="card mt-5 position-fixed" style="height: 88vh; width: 17%;">
+                <div class="card-body">
+                  <h5 class="font-weight-bold text-muted">My Bookings</h5>
+                  <div class="mt-3">
+
+                    <div class="card"> <!-- Post section - First Post profile icon and name div combine tag -->
+                      <div class="d-flex p-2">  
+                        <div> <!-- Garage Profile icon div --> 
+                          <img class="mr-3 rounded-circle userProfImg" src="img/pro.png" alt="profile_name" />
+                        </div><!-- Garage Profile icon div end-->
+
+                        <div> <!-- Name and time include tag -->
+                          <div class="userTopName">
+                            Garage Name <br /> Time : 10.00 PM
+                          </div>                          
+                        </div> <!-- Name and time include tag end -->
+                      </div>  
+                    </div> <!-- Post section - First Post profile icon and name div combine tag end-->
+
+                    <div class="card mt-3"> <!-- Post section - First Post profile icon and name div combine tag -->
+                      <div class="d-flex p-2">  
+                        <div> <!-- Garage Profile icon div --> 
+                          <img class="mr-3 rounded-circle userProfImg" src="img/pro.png" alt="profile_name" />
+                        </div><!-- Garage Profile icon div end-->
+
+                        <div> <!-- Name and time include tag -->
+                          <div class="userTopName">
+                            Garage Name <br /> Time : 10.00 PM
+                          </div>                          
+                        </div> <!-- Name and time include tag end -->
+                      </div>  
+                    </div> <!-- Post section - First Post profile icon and name div combine tag end-->
+
+                    <div class="card mt-3"> <!-- Post section - First Post profile icon and name div combine tag -->
+                      <div class="d-flex p-2">  
+                        <div> <!-- Garage Profile icon div --> 
+                          <img class="mr-3 rounded-circle userProfImg" src="img/pro.png" alt="profile_name" />
+                        </div><!-- Garage Profile icon div end-->
+
+                        <div> <!-- Name and time include tag -->
+                          <div class="userTopName">
+                            Garage Name <br /> Time : 10.00 PM
+                          </div>                          
+                        </div> <!-- Name and time include tag end -->
+                      </div>  
+                    </div> <!-- Post section - First Post profile icon and name div combine tag end-->
+
+                    <div class="card mt-3"> <!-- Post section - First Post profile icon and name div combine tag -->
+                      <div class="d-flex p-2">  
+                        <div> <!-- Garage Profile icon div --> 
+                          <img class="mr-3 rounded-circle userProfImg" src="img/pro.png" alt="profile_name" />
+                        </div><!-- Garage Profile icon div end-->
+
+                        <div> <!-- Name and time include tag -->
+                          <div class="userTopName">
+                            Garage Name <br /> Time : 10.00 PM
+                          </div>                          
+                        </div> <!-- Name and time include tag end -->
+                      </div>  
+                    </div> <!-- Post section - First Post profile icon and name div combine tag end-->
+
+                    <div class="card mt-3"> <!-- Post section - First Post profile icon and name div combine tag -->
+                      <div class="d-flex p-2">  
+                        <div> <!-- Garage Profile icon div --> 
+                          <img class="mr-3 rounded-circle userProfImg" src="img/pro.png" alt="profile_name" />
+                        </div><!-- Garage Profile icon div end-->
+
+                        <div> <!-- Name and time include tag -->
+                          <div class="userTopName">
+                            Garage Name <br /> Time : 10.00 PM
+                          </div>                          
+                        </div> <!-- Name and time include tag end -->
+                      </div>  
+                    </div> <!-- Post section - First Post profile icon and name div combine tag end-->
+
+                  </div>
+                </div>
+              </div>
+            </div>  <!-- ###################################  Booking details side menu section end ################################### -->
+
+
+
+          </div>
+        </div>
+      </div>
+    </section> <!-- ######################################## ^^^ Timeline Section end ^^^ ######################################## -->
+
+
+
+   
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+      integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      function openNav() {
+        document.getElementById("mySidenav").style.width = "100%";
+      }
+
+      function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+      }
+
+      // Get the current year for the copyright
+      $("#year").text(new Date().getFullYear());
+    </script>
+  </body>
+</html>

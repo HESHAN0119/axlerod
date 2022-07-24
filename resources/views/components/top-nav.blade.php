@@ -15,7 +15,7 @@
 
           <!-- Find Garage Item -->
           <li class="nav-item mr-2">
-            <a href="findgarage.html" id="findGarageButton" class="nav-link menuText text-white px-4 mt-3 mt-md-1 mt-lg-1 mt-xl-1 hmT1"><i class="fas fa-tools mr-2"></i> Find Garage</a>
+            <a id="findGarageButton" href="#" class="nav-link menuText text-white px-4 mt-3 mt-md-1 mt-lg-1 mt-xl-1 hmT1"><i class="fas fa-tools mr-2"></i> Find Garage</a>
           </li> <!-- Find Garage Item end-->
 
           <!-- Home Item -->
@@ -63,3 +63,55 @@
       </div> <!-- Navigation Bar Menu Item End -->    
     </div> <!-- Conatiner End -->
   </nav> 
+
+  <script>
+    $( '#findGarageButton' ).on('click', function () {
+		getLocation()
+		
+		let _token   = $('meta[name="csrf-token"]').attr('content');
+
+		function getLocation() {
+			if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(showPosition, showError);
+			} else { 
+				console.log("Geolocation is not supported by this browser.");
+			}
+		}
+			
+		function showError(error) {
+			switch(error.code) {
+				case error.PERMISSION_DENIED:
+					console.log("User denied the request for Geolocation.")
+					break;
+				case error.POSITION_UNAVAILABLE:
+					console.log("Location information is unavailable.")
+					break;
+				case error.TIMEOUT:
+					console.log("The request to get user location timed out.")
+					break;
+				case error.UNKNOWN_ERROR:
+					console.log("An unknown error occurred.")
+					break;
+			}
+		}
+
+		function showPosition(position) {
+			$.ajax({
+				url: "/set/current/garage",
+				type:"POST",
+				data:{
+					longtitude: position.coords.longitude,
+					latitude: position.coords.latitude,
+					_token: _token
+				},
+				success:function(response){
+					window.location.href = "/find/garage";
+					console.log(response);
+				},
+				error: function(error) {
+					console.log(error);
+				}
+			});
+		}
+	});
+</script>
