@@ -63,9 +63,24 @@
                             </button>
               
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton" > <!-- Three dots functionality  -->
-                            <a class="dropdown-item" href="#" ><i class="fas fa-pen mr-2"></i> Edit Post</a>
-                            <a class="dropdown-item" href="#" ><i class="fas fa-eye-slash mr-2"></i>Hide Post</a>
-                            <a class="dropdown-item" href="#" ><i class="fas fa-trash mr-2"></i>Delete Post</a>
+                                @if (Auth::check())
+                                  @if ($post->user->id == auth()->user()->id)
+                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="
+                                      @if ($post->post_type->type == "Feedback")
+                                        #editFeedbackModal{{ $post->id }}
+                                      @elseif($post->post_type->type == "Need Help")
+                                        #editNeedHelpModal{{ $post->id }}
+                                      @else
+                                      @endif	
+                                    "><i class="fas fa-pen mr-2"></i> Edit Post</a>
+                                    
+                                    <a class="dropdown-item" href="#" ><i class="fas fa-trash mr-2"></i>Delete Post</a>
+                                  @else
+                                    <a class="dropdown-item" href="{{ route('post.show', $post->id) }}" ><i class="fas fa-pen mr-2"></i> View Post</a>
+                                  @endif
+                                @else
+                                  <a class="dropdown-item" href="{{ route('post.show', $post->id) }}" ><i class="fas fa-pen mr-2"></i> View Post</a>
+                                @endif
                             </div> <!-- Three dots functionality end -->
                           
                           </div>
@@ -119,40 +134,48 @@
                             
                             </table>
                           </div> <!-- Post Detils Card Section end -->
-              
-                          <div class="text-center"><!-- Feedback images -->
-                            <img src="{{ asset('assets/img/service1.png') }}" alt="service1 image"  class="my-2" style="width: 99%; height: auto"/>
-                          </div><!-- Feedback images end-->
+                          @if ($post->image_url != NULL)
+                            <div class="text-center"><!-- Feedback images -->
+                              <img src="{{ asset('storage/post_img/'.$post->image_url) }}" alt="service1 image"  class="my-2" style="width: 99%; height: auto"/>
+                            </div><!-- Feedback images end-->
+                          @endif
+                          
               
                           <!-- User Comment Section -->
-                          <div class="mt-4">
-              
-                            <!-- User Add comment Section -->
-                            <div class="media my-3">
-                              <img class="mr-3 rounded-circle userProfImg" src="{{ asset('assets/img/pro.png') }}" alt="profile_name" />
-                              <div class="media-body"> <!-- User add comment section - Input field,Send and cancel button -->
-                                <form action="{{ route('comment.store') }}" method="POST">
-                                  @csrf
-                                  <input type="hidden" name="post_id" value="{{ $post->id }}">
-                                  <textarea class="form-control border-dark addCommentInput" name="comment" placeholder="Your Comment ..."  cols="30" rows="3"></textarea>
-                                  <button class="btn btn-sm btn-primary addCommentButton" type="submit" > Send </button>
-                                  <button class="btn btn-sm btn-danger addCommentButton" type="button" > Cancel </button>
-                                </form>
-                              </div> <!-- User add comment section - Input field,Send and cancel button end -->
-                            </div> <!-- User Add comment Section end -->
+                          @if (Auth::check())
+                            <div class="mt-4">
                 
-                            <!-- USer comment sample 1 -->
-                            @foreach ($post->comments as $comment)
-                              <div class="media my-2">
-                                <img class="mr-3 rounded-circle userImageSize" src="{{ asset('assets/img/pro1.jpg') }}" alt="profile_name" />
-                                <div class="media-body">
-                                  <span class="mt-0">{{ $comment->user->fname.' '.$comment->user->lname }}</span>
-                                  <p class="text-justify" style="line-height: 1.2rem">{{ $comment->comment }}</p>
-                                </div>
-                              </div><!-- USer comment sample 1 - end -->
-                            @endforeach
-              
-                          </div> <!-- User Comment Section - end -->
+                              <!-- User Add comment Section -->
+                              <div class="media my-3">
+                                <img class="mr-3 rounded-circle userProfImg" src="{{ asset('assets/img/pro.png') }}" alt="profile_name" />
+                                <div class="media-body"> <!-- User add comment section - Input field,Send and cancel button -->
+                                  <form action="{{ route('comment.store') }}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="post_id" value="{{ $post->id }}">
+                                    <textarea class="form-control border-dark addCommentInput" name="comment" placeholder="Your Comment ..."  cols="30" rows="3"></textarea>
+                                    <button class="btn btn-sm btn-primary addCommentButton" type="submit" > Send </button>
+                                    <button class="btn btn-sm btn-danger addCommentButton" type="button" > Cancel </button>
+                                  </form>
+                                </div> <!-- User add comment section - Input field,Send and cancel button end -->
+                              </div> <!-- User Add comment Section end -->
+                  
+                              <!-- USer comment sample 1 -->
+                              @foreach ($post->comments as $comment)
+                                <div class="media my-2">
+                                  <img class="mr-3 rounded-circle userImageSize" src="{{ asset('assets/img/pro1.jpg') }}" alt="profile_name" />
+                                  <div class="media-body">
+                                    <span class="mt-0">{{ $comment->user->fname.' '.$comment->user->lname }}</span>
+                                    <p class="text-justify" style="line-height: 1.2rem">{{ $comment->comment }}</p>
+                                  </div>
+                                </div><!-- USer comment sample 1 - end -->
+                              @endforeach
+                
+                            </div> <!-- User Comment Section - end -->
+                          @else
+                            <div class="alert alert-primary text-center" role="alert">
+                              <span class=""><a href="" class="btn btn-sm btn-success">Login</a>  to comment</span>
+                            </div>
+                          @endif
                         </div>
                   	</div>
                 </div> <!-- ++++++++++++++++++++++++++++ Post section - detail Post end ++++++++++++++++++++++++++++ -->

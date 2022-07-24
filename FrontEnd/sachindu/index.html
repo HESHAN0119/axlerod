@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+      integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="CSS/style.css" />
+
+    <title>Timeline</title>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+  </head>
+
+  <body>
+
+    <!-- ########################################  Navigation Bar ######################################## -->
+    <nav class="navbar navbar-expand-sm fixed-top">
+      <div class="container">
+        <a href="index.html" class="navbar-brand">
+          <img src="img/logo.png" id="navbarLogo" height="50" alt="AxleRod Logo" /> <!-- Navigation Bar Logo -->
+        </a>
+
+        <!-- Navigation Bar Toggle Button - This will appear only in small screens -->
+        <button class="navbar-toggler custom-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+          <!-- Toggle icon --> <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navigation Bar - Menu Items -->
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav ml-auto">
+
+            <!-- Find Garage Item -->
+            <li class="nav-item mr-2">
+              <a href="findgarage.html" id="findGarageButton" class="nav-link menuText text-white px-4 mt-3 mt-md-1 mt-lg-1 mt-xl-1 hmT1"><i class="fas fa-tools mr-2"></i> Find Garage</a>
+            </li> <!-- Find Garage Item end-->
+
+            <!-- Home Item -->
+            <li class="nav-item mr-2"> 
+              <a href="index.html" class="nav-link menuText hmT"><i class="fas fa-home"></i> Home</a>
+            </li> <!-- Home Item end-->
+            
+            <!-- Post Item -->
+            <li class="nav-item mr-2"> 
+              <a href="post.html" class="nav-link menuText hmT"><i class="fas fa-sticky-note"></i> Post</a>
+            </li> <!-- Post Item end-->
+            
+            <!-- AxleRod dropdown -->
+            <li class="nav-item dropdown mr-2"> 
+              <a class="nav-link menuText hmT" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false" ><i class="fas fa-globe"></i> AxleRod </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a href="aboutus.html" class="nav-link menuText hmT ml-2 ml-md-0 ml-lg-0 ml-xl-0" >About Us</a>
+                <a href="faq.html" class="nav-link menuText hmT ml-2 ml-md-0 ml-lg-0 ml-xl-0" >FAQ</a>
+                <a href="contactus.html" class="nav-link menuText hmT ml-2 ml-md-0 ml-lg-0 ml-xl-0" >Contact Us</a>
+              </div>
+            </li> <!-- AxleRod dropdown end-->
+
+            <!-- Profile dropdown -->
+            <li class="nav-item dropdown mr-2"> 
+              <a class="nav-link menuText hmT" href="account.html" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-user-circle"></i> Profile
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a href="account.html" class="nav-link menuText hmT ml-2 ml-md-0 ml-lg-0 ml-xl-0">Account</a>
+                <a href="booking.html" class="nav-link menuText hmT ml-2 ml-md-0 ml-lg-0 ml-xl-0">Booking</a>
+                <a href="setting.html" class="nav-link menuText hmT ml-2 ml-md-0 ml-lg-0 ml-xl-0">Settings</a>
+              </div>
+            </li> <!-- Profile dropdown end-->
+
+          </ul> <!-- Navigation bar unorder-list end -->
+        </div> <!-- Navigation Bar Menu Item End -->    
+      </div> <!-- Conatiner End -->
+    </nav> <!-- ########################################  Navigation Bar End ######################################## -->
+
+
+    <div class="mt-4"></div> <!-- Space after the navigation bar -->
+
+
+
+    <!-- SHOWCASE -->
+    <section id="showcase" >
+
+      <div class="context col text-center text-white" style="z-index: 101;">
+        <h1>Essence of perfection</h1>
+        <p class="lead">A clean basement, garage and attic are signs of an empty life</p>
+        <a href="#" class="btn btn-lg" style="background-color: #fff;color: #2f98ef;"><b><i class="fas fa-engine-warning mr-2"></i> Emergency</b></a>
+      </div>
+
+      <div class="area">
+        <div class="car mt-5">  
+          <div class="car__top"></div>  
+          <div class="car__body">  
+            <div class="car__bulb"></div>  
+            <div class="car__bulb car__bulb--back"></div>  
+            <div class="car__center"></div>  
+          </div>  
+          <div class="car__wheels">  
+            <div class="car__wheel car__wheel--1">  
+              <div class="wheel__circle"></div>  
+              <div class="wheel__rect wheel__rect--1"></div>  
+              <div class="wheel__rect wheel__rect--2"></div>  
+              <div class="wheel__rect wheel__rect--3"></div>  
+              <div class="wheel__rect wheel__rect--4"></div>  
+              <div class="wheel__rect wheel__rect--5"></div>  
+              <div class="wheel__rect wheel__rect--6"></div>  
+            </div>  
+            <div class="car__wheel car__wheel--2">  
+              <div class="wheel__circle"></div>  
+              <div class="wheel__rect wheel__rect--1"></div>  
+              <div class="wheel__rect wheel__rect--2"></div>  
+              <div class="wheel__rect wheel__rect--3"></div>  
+              <div class="wheel__rect wheel__rect--4"></div>  
+              <div class="wheel__rect wheel__rect--5"></div>  
+              <div class="wheel__rect wheel__rect--6"></div>  
+            </div>  
+          </div>  
+        </div>
+
+        <!-- <div class="cloud" style="--delay:1s;--top:10vmin"></div>  
+        <div class="cloud" style="--delay:3s;--top:20vmin"></div>  
+        <div class="cloud" style="--delay:7s;--top:10vmin"></div> -->
+
+      </div>
+
+    </section>
+
+    <!-- ### BOXES ###-->
+    <section id="boxes" class="py-5" style="background-color: #f3f6f9;"">
+      <div class="container">
+      <div class="row">
+
+          <div class="col-md-3">
+            <div class="card text-center mb-resp mb-2" style="border:2px #2f98ef solid;">
+                <div class="card-body">
+                  <span class="text-dark mt-2"> How to find a <h2 class="text" style="color:#2f98ef;"> Garage</h2></span>
+                  <a href="read.html" class="btn btn-sm text-white mt-3" style="background-color: #2f98ef;">Guideline</a>
+              </div>
+            </div>
+            </div>
+
+          <div class="col-md-3">
+          <div class="card text-center mb-resp mb-2" style="border:2px #2f98ef solid;">
+              <div class="card-body">
+                  <span class="text-dark mt-2"> How to Register as a <h2 class="text" style="color:#2f98ef;"> User</h2></span>
+                  <a href="read.html" class="btn btn-sm text-white mt-3" style="background-color: #2f98ef;">Guideline</a>
+              </div>
+          </div>
+          </div>
+
+          <div class="col-md-3">
+          <div class="card text-center mb-resp mb-2" style="border:2px #2f98ef solid;">
+              <div class="card-body">
+                <span class="text-dark mt-2"> How to Register as a <h2 class="text" style="color:#2f98ef;"> Mechanic</h2></span>
+                <a href="read.html" class="btn btn-sm text-white mt-3" style="background-color: #2f98ef;">Guideline</a>
+            </div>
+          </div>
+          </div>
+
+          
+
+          <div class="col-md-3">
+          <div class="card text-center mb-resp" style="border:2px #2f98ef solid;">
+              <div class="card-body">
+                <span class="text-dark mt-2"> How to make a <h2 class="text" style="color:#2f98ef;"> Post</h2></span>
+                <a href="read.html" class="btn btn-sm text-white mt-3" style="background-color: #2f98ef;">Guideline</a>
+            </div>  
+          </div>
+          </div>
+      </div>
+      </div>
+  </section>
+
+    <!-- ### WELCOME Head Section ### -->
+    <section id="welcome-section" class="text-white" style="background-color: #2f98ef;">
+      <div class="container">
+          <div class="row">
+              <div class="col text-center py-5 " >
+                  <h1 class="display-4">Welcome to AxleRod</h1>
+                  <p class="lead">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga alias totam quisquam, voluptatum quo blanditiis?   <br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate eius earum aliquid, quas inventore quibusdam. Quod earum, <br>Lorem ipsum dolor sit amet consectetur.</p>
+
+              </div>
+          </div>
+      </div>
+  </section>
+
+
+  <!-- ### Explore Section ### -->
+  <section id="explore-section" class="text-muted py-4" style="background-color: #f3f6f9;">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-6 text-center">
+                  <img src="img/hg2.jpg" alt="" class="img-fluid mt-2 mb-3" style="max-width: 80%;">
+              </div>
+              <div class="col-md-6">
+                   <h3>Do You Need a Repair?</h3>
+                   <p>Service Technicians fixes vehicles and replaces their parts for customers. Their duties include inspecting the vehicle’s mechanical components and its engine, diagnosing problems. </p>
+                   <div class="d-flex">
+                       <div class="p-4 align-self-start">
+                           <i class="fas fa-check fa-2x"></i>
+                       </div>
+                       <div class="p-4 align-self-end">
+                        Using manual and computerized diagnostic methods to identify potential problems in a vehicle
+                       </div>
+                   </div>
+                   <div class="d-flex">
+                      <div class="p-4 align-self-start">
+                          <i class="fas fa-check fa-2x"></i>
+                      </div>
+                      <div class="p-4 align-self-end">
+                        Planning work and testing procedures using charts, experience and other organizational methods
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <section id="explore-section" class="text-muted py-5" style="background-color: #f3f6f9;">
+      <div class="container">
+          <div class="row">
+              
+              <div class="col-md-6 d-sm-none text-center">
+                  <img src="img/hg1.jpg" alt="" class="img-fluid mb-3" >
+              </div>
+
+              <div class="col-md-6">
+                   <h3>Do You Run a Garage?</h3>
+                   <p>Whether you run a garage or you’re a mobile mechanic, get started today and gain instant access to 1000s of potential customers</p>
+                   <div class="d-flex">
+                       <div class="p-4 align-self-start">
+                           <i class="fas fa-check fa-2x"></i>
+                       </div>
+                       <div class="p-4 align-self-end">
+                        We connect you to more clients around the Sri Lanka with garages every day. 
+                       </div>
+                   </div>
+                   <div class="d-flex">
+                      <div class="p-4 align-self-start">
+                          <i class="fas fa-check fa-2x"></i>
+                      </div>
+                      <div class="p-4 align-self-end">
+                          You can reach more engament through the website and able earn more for a day.
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-6 text-center d-none d-sm-block">
+                  <img src="img/hg1.jpg" alt="" class="w-75 img-fluid mb-3" >
+              </div>
+
+          </div>
+      </div>
+  </section>
+
+  <!--GEAR ICON SECTION  -->
+  <section id="gear-icons" class="py-5 ">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-2 text-center">
+            <i class="fas fa-tools fa-3x mb-2"></i>
+          <h3>Renovate</h3>
+          <p>Make your vehicle with brighter and prettier condition</p>
+        </div>
+        <div class="col-md-4 mb-2 text-center">
+          <i class="fas fa-clock fa-3x mb-2"></i>
+          <h3>Save Time</h3>
+          <p>Find nearest garage around you with minimal effort</p>
+        </div>
+        <div class="col-md-4 mb-2 text-center">
+            <i class="fa fa-toolbox fa-3x mb-2"></i>
+          <h3>Upkeep</h3>
+          <p>Formal way of referring to the condition of your vehicle</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer id="main-footer" class="py-3 text-white" style="background-color: #2f98ef;">
+      <div class="container">
+
+        <div class="row mt-2">
+          <div class="col-md-4">
+              <h4 >Axlerod</h4>
+              <p class="text-justify">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean 
+              commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,
+              nascetur ridiculus mus. Donec quam felis.
+              </p>
+              <div class="social-icons">
+                  <a href="#"><i class="bx bxl-facebook"></i></a>
+                  <a href="#"><i class="bx bxl-twitter"></i></a>
+                  <a href="#"><i class="bx bxl-instagram"></i></a>
+                  <a href="#"><i class="bx bxl-github"></i></a>
+              </div>
+          </div>
+
+          <div class="col-md-2 mt-1 mb-4">
+            <h5 class="title-sm">Navigation</h5>
+            <div class="footer-links ">
+                <a href="index.html" class="text-decoration-none text-white">Home</a><br>
+                <a href="post.html" class="text-decoration-none text-white">Post</a><br>
+                <a href="about.html" class="text-decoration-none text-white">About Us</a><br>
+                <a href="booking.html" class="text-decoration-none text-white">Booking</a>
+            </div>
+          </div>
+
+          <div class="col-md-2 mt-1 mb-4">
+            <h5 class="title-sm">Quick Links</h5>
+            <div class="footer-links">
+              <a href="privacy.html" class="text-decoration-none text-white">Privacy Policy</a><br>
+              <a href="faq.html" class="text-decoration-none text-white">FAQ</a><br>
+              <a href="tac.html" class="text-decoration-none text-white">Terms & Conditions</a><br>
+            </div>
+          </div>
+
+          <div class="col-md-4 mt-1">
+            <h5 >Address</h5>
+            <div class="footer-links">
+                <p class="mb">269/M Wathumulla Road, Asgiriya, Gampaha,11000</p>
+                
+                <p class="mb">axlerod@gmail.com</p>
+            </div>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="row justify-content-between">
+          <div class="col">
+            <p>Copyright &copy;
+              <span id="year"></span> AxleRod | All rights reserved</p>     
+          </div>
+        </div>
+      </div>
+
+  </footer>
+
+
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+      integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      function openNav() {
+        document.getElementById("mySidenav").style.width = "100%";
+      }
+
+      function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+      }
+
+      // Get the current year for the copyright
+      $("#year").text(new Date().getFullYear());
+    </script>
+  </body>
+</html>
