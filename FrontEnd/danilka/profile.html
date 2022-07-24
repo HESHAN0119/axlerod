@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+      integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Garage</title>
+    <link rel="shortcut icon" href="img/logo.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <!-- #### START HERE #####-->
+
+    <!-- ### NavigationBAR ### -->
+    <nav
+      class="navbar navbar-expand-sm navbar-dark fixed-top py-1"
+      style="background-color: #007bff"
+    >
+      <div class="container">
+        <a href="index.html" class="navbar-brand">
+          <h4>Flare Mind</h4>
+        </a>
+        <button
+          class="navbar-toggler"
+          data-toggle="collapse"
+          data-target="#navbarCollapse"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a href="index.html" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="blog.html" class="nav-link">Article</a>
+            </li>
+            <li class="nav-item">
+              <a href="about.html" class="nav-link">About us</a>
+            </li>
+            <li class="nav-item">
+              <a href="contact.html" class="nav-link">Contact</a>
+            </li>
+            <li class="nav-item dropdown mb-2">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdownMenuLink"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <img
+                  src="settings.png"
+                  class="rounded-circle"
+                  height="20"
+                  alt="Profile"
+                  loading="lazy"
+                />
+              </a>
+              <div
+                class="dropdown-menu"
+                aria-labelledby="navbarDropdownMenuLink"
+              >
+                <a class="dropdown-item" href="profile.html">Settings</a>
+                <a class="dropdown-item" href="#">Logout</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ### BOXES ###-->
+    <section id="boxes" class="py-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="d-none d-md-block">
+              <span
+                class="d-block p-2 text-white"
+                style="background-color: #007bff"
+                ><i class="fas fa-tachometer-alt pr-2"></i> Dashboard</span
+              >
+              <span class="d-block p-2 bg-light mt-2"
+                ><a href="profile.html" class="text-dark"
+                  ><i class="fas fas fa-user-circle pr-2"></i> Profile</a
+                ></span
+              >
+              <span class="d-block p-2 bg-light mt-2"
+                ><a href="bookings.html" class="text-dark"
+                  ><i class="fas fa-tasks pr-2"></i> Booking</a
+                ></span
+              >
+              <span class="d-block p-2 bg-light mt-2"
+                ><a href="postmenu.html" class="text-dark"
+                  ><i class="fas fa-book pr-2"></i> My Post</a
+                ></span
+              >
+              <span class="d-block p-2 bg-light mt-2"
+                ><a href="help.html" class="text-dark"
+                  ><i class="far fa-question-circle pr-2"></i> Help</a
+                ></span
+              >
+            </div>
+
+            <div class="dropdown text-center d-md-none">
+              <button
+                class="btn btn-lg dropdown-toggle text-white mb-2"
+                style="background-color: #007bff; width: 100%"
+                type="button"
+                id="dropdownMenuButton"
+                data-toggle="dropdown"
+              >
+                <i class="fas fa-tachometer-alt pr-2"></i> Dashboard
+              </button>
+              <div
+                class="dropdown-menu text-center w-100"
+                aria-labelledby="dropdownMenuButton"
+              >
+                <span class="d-block p-2 bg-light mt-2 dropdown-item"
+                  ><a href="profile.html" class="text-dark"
+                    ><i class="fas fas fa-user-circle pr-2"></i> Profile</a
+                  ></span
+                >
+                <span class="d-block p-2 bg-light mt-2 dropdown-item"
+                  ><a href="bookings.html" class="text-dark"
+                    ><i class="fas fa-tasks pr-2"></i> Bookings</a
+                  ></span
+                >
+                <span class="d-block p-2 bg-light mt-2 dropdown-item"
+                  ><a href="postmenu.html" class="text-dark"
+                    ><i class="fas fa-book pr-2"></i> My Post</a
+                  ></span
+                >
+                <span class="d-block p-2 bg-light mt-2 dropdown-item"
+                  ><a href="help.html" class="text-dark"
+                    ><i class="far fa-question-circle pr-2"></i> Help</a
+                  ></span
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-9" id="dprofile">
+            <div class="card bg-light">
+              
+              <div class="p-3 py-3">
+                <div
+                  class="d-flex justify-content-between align-items-center mb-3"
+                >
+                  <h4 class="text-right">Profile Settings</h4>
+                </div>
+                <div class="row mt-2">
+                  <div class="col-md-6">
+                    <label class="labels">First Name</label>
+                    <input type="text" class="form-control" value="" />
+                  </div>
+                  <div class="col-md-6">
+                    <label class="labels">Last Name</label>
+                    <input type="text" class="form-control" />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 mt-2">
+                    <label class="labels">User Name</label>
+                    <input type="text" class="form-control" value="" />
+                  </div>
+                  <div class="col-md-12 mt-2">
+                    <label class="labels">Email</label>
+                    <input type="text" class="form-control" />
+                  </div>
+
+                  <div class="col-md-12 mt-2">
+                    <label class="labels">Mobile Number</label>
+                    <input type="text" class="form-control" />
+                  </div>
+
+                  <div class="col-md-12 mt-2">
+                    <label class="labels">Password</label>
+                    <input type="password" class="form-control" />
+                  </div>
+
+                <div class="mt-4">
+                  <button
+                    class="btn profile-button text-white"
+                    type="button"
+                    style="background-color: #007bff;margin-left: 15px;"
+                    
+                  >
+                    Save Profile
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+     <footer
+      id="main-footer"
+      class="text-center py-3 text-white fixed-bottom"
+      style="background-color: #007bff"
+    >
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <p>Copyright &copy; <span id="year"></span> Garage</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+      integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      // Get the current year for the copyright
+      $("#year").text(new Date().getFullYear());
+    </script>
+  </body>
+</html>
