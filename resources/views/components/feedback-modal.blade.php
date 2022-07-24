@@ -15,7 +15,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <form action="{{ route('post.store') }}" method="POST" autocomplete="off">
+          <form action="{{ route('post.store') }}" method="POST" autocomplete="off" enctype="multipart/form-data">
             @csrf
             <input type="hidden" name="post_type" value="1">
             <label for="problem">Title</label>
@@ -55,7 +55,7 @@
             <input type="text" class="form-control" name="feedback"/>
 
             <label for="inputImages" class="mt-2">Image File <small>(Max size : 2MB)</small></label>
-            <input type="file" class="form-control" id="customFile" />
+            <input type="file" class="form-control" id="customFile" name="image_url"/>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-dismiss="modal">

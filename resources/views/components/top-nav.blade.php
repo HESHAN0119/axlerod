@@ -39,25 +39,33 @@
           </li> <!-- AxleRod dropdown end-->
 
           <!-- Profile dropdown -->
-          <li class="nav-item dropdown mr-2"> 
-            <a class="nav-link menuText hmT" href="account.html" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="fas fa-user-circle"></i> Profile
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a href="account.html" class="nav-link menuText hmT ml-2 ml-md-0 ml-lg-0 ml-xl-0">Account</a>
-              <a href="booking.html" class="nav-link menuText hmT ml-2 ml-md-0 ml-lg-0 ml-xl-0">Booking</a>
-              <a class="nav-link menuText hmT ml-2 ml-md-0 ml-lg-0 ml-xl-0" href="{{ route('logout') }}"
-                                     onclick="event.preventDefault();
-                                                   document.getElementById('logout-form').submit();">
-                                      {{ __('Logout') }}
-                                      <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                          @csrf
-                                      </form>
-                                  </a>
-                                  
-              <a href="setting.html" class="nav-link menuText hmT ml-2 ml-md-0 ml-lg-0 ml-xl-0">Settings</a>
-            </div>
-          </li> <!-- Profile dropdown end-->
+          @if (Auth::check())
+            <li class="nav-item dropdown mr-2"> 
+              <a class="nav-link menuText hmT" href="account.html" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-user-circle"></i> Profile
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a href="account.html" class="nav-link menuText hmT ml-2 ml-md-0 ml-lg-0 ml-xl-0">Account</a>
+                <a href="booking.html" class="nav-link menuText hmT ml-2 ml-md-0 ml-lg-0 ml-xl-0">Booking</a>
+                <a href="setting.html" class="nav-link menuText hmT ml-2 ml-md-0 ml-lg-0 ml-xl-0">Settings</a>
+                <a class="nav-link menuText hmT ml-2 ml-md-0 ml-lg-0 ml-xl-0" href="{{ route('logout') }}"
+                                      onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            @csrf
+                                        </form>
+                                    </a>
+              </div>
+            </li> <!-- Profile dropdown end-->
+          @else
+            <li class="nav-item mr-2"> 
+              <a href="/login" class="nav-link menuText hmT"><i class="fas fa-sticky-note"></i> Login</a>
+            </li> <!-- Post Item end-->
+            <li class="nav-item mr-2"> 
+              <a href="/register" class="nav-link menuText hmT"><i class="fas fa-sticky-note"></i> Register</a>
+            </li> <!-- Post Item end-->
+          @endif
 
         </ul> <!-- Navigation bar unorder-list end -->
       </div> <!-- Navigation Bar Menu Item End -->    
@@ -109,6 +117,7 @@
 					console.log(response);
 				},
 				error: function(error) {
+          window.location.href = "/find/garage";
 					console.log(error);
 				}
 			});

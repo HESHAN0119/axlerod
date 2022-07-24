@@ -25,19 +25,22 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::middleware(['web', 'auth'])->group(function () {
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-    Route::resource('/post', PostController::class);
-    Route::post('/post/filter', [PostController::class, 'filter_posts'])->name('filter_posts');
-
     Route::resource('/comment', CommentController::class);
-
-    Route::get('autocomplete/garage/name', [GarageProfileController::class, 'autocomplete_garage_name'])->name('autocomplete_garage_name');
-    Route::get('/cusomer/view/{garage}', [GarageProfileController::class, 'garge_customer_view'])->name('garge_customer_view');
-
     Route::get('/find/garage', [GarageProfileController::class, 'find_garage'])->name('find_garage');
     Route::post('/set/current/garage', [GarageProfileController::class, 'set_current_location'])->name('set_current_location');
 });
 
 Route::middleware(['web', 'auth', 'check_if_garage'])->group(function () {
     Route::resource('/garage/profile', GarageProfileController::class);
+});
+
+Route::middleware(['web'])->group(function () {
+    Route::resource('/post', PostController::class);
+    Route::group(['middleware' => ['auth']], function() {
+        Route::resource('/post', PostController::class, ['only' => ['store']]);
+    });
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::post('/post/filter', [PostController::class, 'filter_posts'])->name('filter_posts');
+    Route::get('/cusomer/view/{garage}', [GarageProfileController::class, 'garge_customer_view'])->name('garge_customer_view');
+    Route::get('autocomplete/garage/name', [GarageProfileController::class, 'autocomplete_garage_name'])->name('autocomplete_garage_name');
 });

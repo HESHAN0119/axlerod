@@ -22,10 +22,11 @@
 							</div>
 							</div>
 						</div><!-- Top head background image section end-->
-
-						<!-- Post section button set-->
-						<x-post-section-buttons></x-post-section-buttons>
-						<!-- Post section button set end-->
+						@if (Auth::check())
+							<!-- Post section button set-->
+							<x-post-section-buttons></x-post-section-buttons>
+							<!-- Post section button set end-->
+						@endif
 						
 						@if(session('status'))
 							<div class="alert alert-primary alert-dismissible fade show" role="alert">
@@ -73,23 +74,25 @@
 												</button>
 
 												<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton" > <!-- Three dots functionality  -->
-													@if ($post->user->id == auth()->user()->id)
-														<a class="dropdown-item" href="#" data-toggle="modal" data-target="
-															@if ($post->post_type->type == "Feedback")
-																#editFeedbackModal{{ $post->id }}
-															@elseif($post->post_type->type == "Need Help")
-																#editNeedHelpModal{{ $post->id }}
-															@else
-															@endif	
-														"><i class="fas fa-pen mr-2"></i> Edit Post</a>
-														
-														<a class="dropdown-item" href="#" ><i class="fas fa-eye-slash mr-2"></i>Hide Post</a>
-														<a class="dropdown-item" href="#" ><i class="fas fa-trash mr-2"></i>Delete Post</a>
+													@if (Auth::check())
+														@if ($post->user->id == auth()->user()->id)
+															<a class="dropdown-item" href="#" data-toggle="modal" data-target="
+																@if ($post->post_type->type == "Feedback")
+																	#editFeedbackModal{{ $post->id }}
+																@elseif($post->post_type->type == "Need Help")
+																	#editNeedHelpModal{{ $post->id }}
+																@else
+																@endif	
+															"><i class="fas fa-pen mr-2"></i> Edit Post</a>
+															
+															<a class="dropdown-item" href="#" ><i class="fas fa-trash mr-2"></i>Delete Post</a>
+														@else
+															<a class="dropdown-item" href="{{ route('post.show', $post->id) }}" ><i class="fas fa-pen mr-2"></i> View Post</a>
+														@endif
 													@else
-														<a class="dropdown-item" href="#" ><i class="fas fa-pen mr-2"></i> View Post</a>
-														<a class="dropdown-item" href="#" ><i class="fas fa-eye-slash mr-2"></i>Hide Post</a>
+														<a class="dropdown-item" href="{{ route('post.show', $post->id) }}" ><i class="fas fa-pen mr-2"></i> View Post</a>
 													@endif
-													
+														
 												</div> <!-- Three dots functionality end -->
 												
 												</div>

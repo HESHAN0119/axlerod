@@ -65,6 +65,11 @@ class PostController extends Controller
             $post_type = PostType::where("type", '=', 'Need Help')->get();
         }
         
+        if ($request->hasFile('image_url')) {
+            $request->image_url->store('post_img', 'public');
+            $validated["image_url"] = $request->image_url->hashName();
+        }
+
         $validated["post_type_id"] = $post_type[0]->id;
         $validated["views"] = 0;
         $user = User::find(auth()->user()->id);
