@@ -15,7 +15,7 @@
 
           <!-- Find Garage Item -->
           <li class="nav-item mr-2">
-            <a id="findGarageButton" href="#" class="nav-link menuText text-white px-4 mt-3 mt-md-1 mt-lg-1 mt-xl-1 hmT1"><i class="fas fa-tools mr-2"></i> Find Garage</a>
+            <a id="findGarageButton" href="#" class="nav-link menuText text-white px-3 mt-3 mt-md-1 mt-lg-1 mt-xl-1 hmT1"><i class="fas fa-tools mr-2"></i> Find Garage</a>
           </li> <!-- Find Garage Item end-->
 
           <!-- Home Item -->
