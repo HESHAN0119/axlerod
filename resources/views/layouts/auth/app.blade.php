@@ -21,7 +21,8 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
-<script src="{{ asset('assets/js/jquery.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.js') }}"></script>
+    
     <title>Timeline</title>
     <link rel="shortcut icon" href="{{ asset('assets/img/favicon.ico') }}" type="image/x-icon" />
   </head>
@@ -58,5 +59,6 @@
       // Get the current year for the copyright
       $("#year").text(new Date().getFullYear());
     </script>
+    <script src="{{ asset('assets/js/signup.js') }}"></script>
   </body>
 </html>

@@ -21,7 +21,6 @@ class PostController extends Controller
         $posts = Post::orderBy('id', 'DESC')->get();
         $vehicle_types = VehicleType::all();
 
-        $post = Post::find(1);
         return view('posts', ["posts"=>$posts, "vehicle_types"=>$vehicle_types]);
     }
 
@@ -66,6 +65,11 @@ class PostController extends Controller
             $post_type = PostType::where("type", '=', 'Need Help')->get();
         }
         
+        if ($request->hasFile('image_url')) {
+            $request->image_url->store('post_img', 'public');
+            $validated["image_url"] = $request->image_url->hashName();
+        }
+
         $validated["post_type_id"] = $post_type[0]->id;
         $validated["views"] = 0;
         $user = User::find(auth()->user()->id);
@@ -150,5 +154,26 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function filter_posts(Request $request) {
+        if ($request->vehicle_type_id == "" && $request->city == "" && $request->district == "") {
+            session()->flash('status', 'No filter selected!');
+            return redirect()->route('post.index');
+        } else {
+            
+            $posts = Post::where('vehicle_type_id', '=', $request->vehicle_type_id)
+                         ->orWhere('city', '=', $request->city)
+                         ->orWhere('district', '=', $request->district)->get();
+
+            if (count($posts) == 0) {
+                session()->flash('status', 'Could not find any post according to the filters!');
+                return redirect()->route('post.index');
+            }
+
+            $vehicle_types = VehicleType::all();
+            session()->flash('status', 'Filtered Posts');
+            return view('posts', ["posts"=>$posts, "vehicle_types"=>$vehicle_types]);
+        }
     }
 }

@@ -179,9 +179,19 @@
         </div>
        
         <script>
-            const latitude = parseFloat("{{ $garage_profile->latitude }}")
-            const longtitude = parseFloat("{{ $garage_profile->longtitude }}")
+            
             function initMap(){
+                const address = '{{ $garage_profile->address }}'
+                if (address == null) {
+                    content = '<div><strong>{{ $garage_profile->garage_name }}</strong><br>Mob No: {{$garage_profile->garage_mobno }}<br> {{ $garage_profile->address }}</div><div style="border-top: 1px solid rgb(204, 204, 204); margin-top: 9px; padding: 6px; font-size: 13px; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; font-family: Roboto, Arial;"><a href="https://www.google.com/maps/search/?api=1&query={{ $garage_profile->address_lat }}%2C{{ $garage_profile->address_lng }}" target="_blank" rel="noopener" style="cursor: pointer; color: rgb(66, 127, 237); text-decoration: none;">View on Google Maps</a></div>'
+                    latitude = parseFloat("{{ $garage_profile->address_lat }}")
+                    longtitude = parseFloat("{{ $garage_profile->address_lng }}")
+                } else {
+                    content = '<div><strong>{{ $garage_profile->garage_name }}</strong><br>Mob No: {{$garage_profile->garage_mobno }}<br> {{ $garage_profile->location }}</div><div style="border-top: 1px solid rgb(204, 204, 204); margin-top: 9px; padding: 6px; font-size: 13px; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; font-family: Roboto, Arial;"><a href="https://www.google.com/maps/search/?api=1&query={{ $garage_profile->latitude }}%2C{{ $garage_profile->longtitude }}" target="_blank" rel="noopener" style="cursor: pointer; color: rgb(66, 127, 237); text-decoration: none;">View on Google Maps</a></div>'
+                    latitude = parseFloat("{{ $garage_profile->latitude }}")
+                    longtitude = parseFloat("{{ $garage_profile->longtitude }}")
+                }
+
                 var options = {
                     zoom:15,
                     center:{lat:latitude,lng:longtitude}
@@ -194,9 +204,9 @@
                     map:map,
                     // icon:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
                 });
-            
+
                 var infoWindow = new google.maps.InfoWindow({
-                    content:'<h6>{{ $garage_profile->garage_name }}</h6>'
+                    content: content
                 });
             
                 marker.addListener('click', function(){
