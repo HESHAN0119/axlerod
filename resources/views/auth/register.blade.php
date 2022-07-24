@@ -1,79 +1,6 @@
 @extends('layouts.auth.app')
 
 @section('content')
-{{-- <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
-
-                        <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> --}}
 
 <section id="signup">
     <div class="container">
@@ -157,10 +84,11 @@
                       class="form-radio-input"
                       type="radio"
                       name="status"
-                      id="radioButton"
+                      id="driver"
                       value="0"
+                      checked
                     />
-                    <b>Driver</b>
+                    <b><label for="driver">Driver </b>
 
                     <input
                       class="form-radio-input ml-4"
@@ -169,8 +97,41 @@
                       id="garage"
                       value="1"
                     />
-                    <b>Garage</b>
+                    <b><label for="garage">Garage</label></b>
                   </div>
+                </div>
+
+                <div class="row mb-4">
+					<div class="col-md-1">
+						<i class="fas fa-lock fa-lg mt-3 d-none d-md-block"></i>
+					</div>
+					<div class="col-md-10">
+						<input type="password" class="form-control @error('password') is-invalid @enderror" name="password" required placeholder="Password" autocomplete="new-password" onkeyup="passwordValidate()" id="pass">
+
+						<div id="pass_check" style="display:none" class="mt-1" >
+							<p style="display:block" class="small"><strong>
+								<span id="inc_char12_0" style="display:none;" ><i class="fa fa-check-circle" aria-hidden="true"></i> Length must be more than 8 characters</span>
+								<span id="inc_char12_1" style="display:inline;color:red"><i  class="fa fa-times-circle" aria-hidden="true"></i> Length must be more than 8 characters</span> </strong>
+							</p>
+							<p style="display:block;" class="small"><strong>
+								<span  id="inc_onenumber_0" style="display:none;"><i class="fa fa-check-circle" aria-hidden="true"></i> At least include one number</span>
+								<span  id="inc_onenumber_1" style="display:inline;color:red"><i class="fa fa-times-circle" aria-hidden="true"></i> At least include one number</span> </strong>
+							</p>
+							<p style="display:block;" class="small"><strong>
+								<span  id="inc_lowercase_0" style="display:none;"><i class="fa fa-check-circle" aria-hidden="true"></i> At least include one Lowercase letter</span>
+								<span  id="inc_lowercase_1" style="display:inline;color:red"><i class="fa fa-times-circle" aria-hidden="true"></i> At least include one Lowercase letter</span> </strong>
+							</p>
+							<p style="display:block;" class="small"><strong>
+								<span id="inc_uppercase_0" style="display:none;" ><i class="fa fa-check-circle" aria-hidden="true"></i> At least include one Uppercase letter</span>
+								<span  id="inc_uppercase_1" style="display:inline;color:red"><i class="fa fa-times-circle" aria-hidden="true"></i> At least include one Uppercase letter</span> </strong>
+							</p>
+						</div>
+						@error('password')
+							<span class="invalid-feedback" role="alert">
+								<strong>{{ $message }}</strong>
+							</span>
+						@enderror
+					</div>
                 </div>
 
                 <div class="row mb-4">
@@ -178,26 +139,13 @@
                     <i class="fas fa-lock fa-lg mt-3 d-none d-md-block"></i>
                   </div>
                   <div class="col-md-10">
-                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required placeholder="Password" autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                    <input id="cpassword" type="password" class="form-control" name="password_confirmation" required  placeholder="Confirm Password" autocomplete="new-password">
+                    <span class="small text-danger" id="password_notmatched"><strong>Passwords not matched</strong></span>
+                    <span class="small text-success" id="password_matched"><strong>Passwords matched</strong></span>
                   </div>
                 </div>
 
-                <div class="row mb-4">
-                  <div class="col-md-1">
-                    <i class="fas fa-lock fa-lg mt-3 d-none d-md-block"></i>
-                  </div>
-                  <div class="col-md-10">
-                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required  placeholder="Confirm Password" autocomplete="new-password">
-                  </div>
-                </div>
-
-                <div class="row my-4">
+                {{-- <div class="row my-4">
                   <div class="col-md-1"></div>
                   <div class="col-md-10 ml-4 form-check">
                     <input
@@ -209,23 +157,18 @@
                     />I agree all statements in
                     <a href="#!">Terms of service</a>
                   </div>
-                </div>
+                </div> --}}
 
                 <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                   <button type="submit" class="btn btn-primary btn-md">
                     Register
                   </button>
+                  <a href="/login" class="btn btn-link">Already have an account?</a>
                 </div>
               </form>
             </div>
             <div class="col-md-6">
-              <img
-                src="{{ asset('assets/img/signup.png') }}"
-                style="width: 90%; height: auto"
-                class="d-none d-md-block"
-                id="signupImage"
-                alt="Signup image"
-              />
+              	<img src="{{ asset('assets/img/signup.png') }}" style="width: 90%; height: auto" class="d-none d-md-block" id="signupImage" alt="Signup image" />
             </div>
           </div>
         </div>

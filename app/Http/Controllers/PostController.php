@@ -21,7 +21,6 @@ class PostController extends Controller
         $posts = Post::orderBy('id', 'DESC')->get();
         $vehicle_types = VehicleType::all();
 
-        $post = Post::find(1);
         return view('posts', ["posts"=>$posts, "vehicle_types"=>$vehicle_types]);
     }
 
@@ -154,9 +153,22 @@ class PostController extends Controller
 
     public function filter_posts(Request $request) {
         if ($request->vehicle_type_id == "" && $request->city == "" && $request->district == "") {
-            return back();
+            session()->flash('status', 'No filter selected!');
+            return redirect()->route('post.index');
         } else {
-            dd("HLOO");
+            
+            $posts = Post::where('vehicle_type_id', '=', $request->vehicle_type_id)
+                         ->orWhere('city', '=', $request->city)
+                         ->orWhere('district', '=', $request->district)->get();
+
+            if (count($posts) == 0) {
+                session()->flash('status', 'Could not find any post according to the filters!');
+                return redirect()->route('post.index');
+            }
+
+            $vehicle_types = VehicleType::all();
+            session()->flash('status', 'Filtered Posts');
+            return view('posts', ["posts"=>$posts, "vehicle_types"=>$vehicle_types]);
         }
     }
 }

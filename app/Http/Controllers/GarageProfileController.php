@@ -151,8 +151,12 @@ class GarageProfileController extends Controller
             }
             $distance = $garage_profile->getDistance($user->latitude, $user->longtitude, $garage_latitude, $garage_longtitude);
             if ($distance < 5) {
+
+                // echo $distance . "<br>";
+                
                 array_push($filtered_profiles, $garage_profile);
             }
+
         }
         $vehicle_types = VehicleType::all();
         return view('garage.all-and-nearest-garages', ['garage_profiles'=>$garage_profiles, 'filtered_profiles'=>$filtered_profiles, "vehicle_types"=>$vehicle_types]);
