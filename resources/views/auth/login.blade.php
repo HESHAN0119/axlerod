@@ -94,7 +94,7 @@
                                     <i class="fas fa-envelope fa-lg mt-3 d-none d-md-block"></i>
                                 </div>
                                 <div class="col-md-10">
-                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email" autofocus>
 
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
@@ -109,7 +109,7 @@
                                     <i class="fas fa-lock fa-lg mt-3 d-none d-md-block"></i>
                                 </div>
                                 <div class="col-md-10">
-                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required placeholder="Password" autocomplete="current-password">
 
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
