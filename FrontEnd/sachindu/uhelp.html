@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+      integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="CSS/style.css" />
+
+    <title>Timeline</title>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+  </head>
+
+  <body>
+
+    <!-- ########################################  Navigation Bar ######################################## -->
+    <nav class="navbar navbar-expand-sm fixed-top">
+      <div class="container">
+        <a href="index.html" class="navbar-brand">
+          <img src="img/logo.png" id="navbarLogo" height="50" alt="AxleRod Logo" /> <!-- Navigation Bar Logo -->
+        </a>
+
+        <!-- Navigation Bar Toggle Button - This will appear only in small screens -->
+        <button class="navbar-toggler custom-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+          <!-- Toggle icon --> <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navigation Bar - Menu Items -->
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav ml-auto">
+
+            <!-- Find Garage Item -->
+            <li class="nav-item mr-2">
+              <a href="findgarage.html" id="findGarageButton" class="nav-link menuText text-white px-4 mt-3 mt-md-1 mt-lg-1 mt-xl-1 hmT1"><i class="fas fa-tools mr-2"></i> Find Garage</a>
+            </li> <!-- Find Garage Item end-->
+
+            <!-- Home Item -->
+            <li class="nav-item mr-2"> 
+              <a href="index.html" class="nav-link menuText hmT"><i class="fas fa-home"></i> Home</a>
+            </li> <!-- Home Item end-->
+            
+            <!-- Post Item -->
+            <li class="nav-item mr-2"> 
+              <a href="post.html" class="nav-link menuText hmT"><i class="fas fa-sticky-note"></i> Post</a>
+            </li> <!-- Post Item end-->
+            
+            <!-- AxleRod dropdown -->
+            <li class="nav-item dropdown mr-2"> 
+              <a class="nav-link menuText hmT" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false" ><i class="fas fa-globe"></i> AxleRod </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a href="aboutus.html" class="nav-link menuText hmT ml-2 ml-md-0 ml-lg-0 ml-xl-0" >About Us</a>
+                <a href="faq.html" class="nav-link menuText hmT ml-2 ml-md-0 ml-lg-0 ml-xl-0" >FAQ</a>
+                <a href="contactus.html" class="nav-link menuText hmT ml-2 ml-md-0 ml-lg-0 ml-xl-0" >Contact Us</a>
+              </div>
+            </li> <!-- AxleRod dropdown end-->
+
+            <!-- Profile dropdown -->
+            <li class="nav-item dropdown mr-2"> 
+              <a class="nav-link menuText hmT" href="account.html" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-user-circle"></i> Profile
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a href="account.html" class="nav-link menuText hmT ml-2 ml-md-0 ml-lg-0 ml-xl-0">Account</a>
+                <a href="booking.html" class="nav-link menuText hmT ml-2 ml-md-0 ml-lg-0 ml-xl-0">Booking</a>
+                <a href="setting.html" class="nav-link menuText hmT ml-2 ml-md-0 ml-lg-0 ml-xl-0">Settings</a>
+              </div>
+            </li> <!-- Profile dropdown end-->
+
+          </ul> <!-- Navigation bar unorder-list end -->
+        </div> <!-- Navigation Bar Menu Item End -->    
+      </div> <!-- Conatiner End -->
+    </nav> <!-- ########################################  Navigation Bar End ######################################## -->
+
+
+    <div class="mt-5"></div> <!-- Space after the navigation bar -->
+
+
+    <!-- ### BOXES ###-->
+    <section id="boxes" class="py-3" style="background-color: #f3f6f9;">
+      <div class="container">
+          <div class="row mt-2">
+              
+            <div class="col-md-3 mb-2">
+              <div class="card sidePanel">
+                <div class="card-body">
+                    <div class="d-none d-md-block">	
+  
+                        <span class="d-block p-2 text-white" style="background-color:#2f98ef;"><i class="fas fa-tachometer-alt pr-2"></i> Dashboard</span>
+  
+                        <span class="d-block p-2 mt-2 hmT2"><a href="uproad.html" class="text-dark text-decoration-none">Profile</a></span>
+  
+                        <span class="d-block p-2 mt-2 hmT2"><a href="booking.html" class="text-dark text-decoration-none">Booking</a></span>                      
+  
+                        <span class="d-block p-2 hmT2 mt-2"><a href="uhelp.html" class="text-dark text-decoration-none"> Help</a></span>
+                    </div>
+  
+                    <div class="dropdown text-center d-md-none">
+  
+                        <button class="btn btn-md dropdown-toggle text-white mb-2" style="background-color: #2f98ef; width: 100%;" type="button" id="dropdownMenuButton" data-toggle="dropdown" ><i class="fas fa-tachometer-alt pr-2"></i> Dashboard</button>
+  
+                        <div class="dropdown-menu text-center w-100" aria-labelledby="dropdownMenuButton">
+  
+                          <span class="d-block p-2 mt-2 hmT2"><a href="uproad.html" class="text-dark text-decoration-none">Profile</a></span>
+  
+                        <span class="d-block p-2 mt-2 hmT2"><a href="booking.html" class="text-dark text-decoration-none">Booking</a></span>                      
+  
+                        <span class="d-block p-2 hmT2 mt-2"><a href="uhelp.html" class="text-dark text-decoration-none"> Help</a></span>
+                        
+                      </div>
+                    </div>
+                </div>
+                </div>
+              </div>
+
+              <div class="col-md-9" id="dprofile">
+                  <div class="card">
+                      
+                    <div id="accordion">
+
+                      <div class="card">
+                        <div class="card-header" id="headingOne">
+                          <h5 class="mb-0">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                              <i class="fas fa-arrow-circle-down"></i> How do I change my username ?
+                            </button>
+                          </h5>
+                        </div>
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                          <div class="card-body">
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="card">
+                        <div class="card-header" id="headingTwo">
+                          <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                              <i class="fas fa-arrow-circle-down"></i> How do I change my password ?
+                            </button>
+                          </h5>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                          <div class="card-body">
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="card">
+                        <div class="card-header" id="headingThree">
+                          <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                              <i class="fas fa-arrow-circle-down"></i> How do I change my profile image?
+                            </button>
+                          </h5>
+                        </div>
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                          <div class="card-body">
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="card">
+                          <div class="card-header" id="headingTwo">
+                            <h5 class="mb-0">
+                              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                  <i class="fas fa-arrow-circle-down"></i> How do I add new article ?
+                              </button>
+                            </h5>
+                          </div>
+                          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                            <div class="card-body">
+                              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="card">
+                          <div class="card-header" id="headingThree">
+                            <h5 class="mb-0">
+                              <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                  <i class="fas fa-arrow-circle-down"></i> Why is my progress level not updated yet ?
+                              </button>
+                            </h5>
+                          </div>
+                          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                            <div class="card-body">
+                              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                            </div>
+                          </div>
+                        </div>
+
+                  </div>
+
+                  </div>         
+              </div>
+          </div>
+      </div>
+  </section>
+    
+
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+      integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      function openNav() {
+        document.getElementById("mySidenav").style.width = "100%";
+      }
+
+      function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+      }
+
+      var dropdown = document.getElementsByClassName("dropdown-btn1");
+      var i;
+
+      for (i = 0; i < dropdown.length; i++) {
+        dropdown[i].addEventListener("click", function () {
+          this.classList.toggle("active");
+          var dropdownContent = this.nextElementSibling;
+          if (dropdownContent.style.display === "block") {
+            dropdownContent.style.display = "none";
+          } else {
+            dropdownContent.style.display = "block";
+          }
+        });
+      }
+
+      var dropdown = document.getElementsByClassName("dropdown-btn2");
+      var j;
+
+      for (j = 0; j < dropdown.length; j++) {
+        dropdown[j].addEventListener("click", function () {
+          this.classList.toggle("active");
+          var dropdownContent = this.nextElementSibling;
+          if (dropdownContent.style.display === "block") {
+            dropdownContent.style.display = "none";
+          } else {
+            dropdownContent.style.display = "block";
+          }
+        });
+      }
+
+      // Get the current year for the copyright
+      $("#year").text(new Date().getFullYear());
+    </script>
+  </body>
+</html>
